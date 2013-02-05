@@ -16,10 +16,27 @@
 	"buffers":
 	[
 		{
-			"file": "application/views/welcome_message.php",
+			"file": "application/core/MY_Model.php",
 			"settings":
 			{
-				"buffer_size": 1933,
+				"buffer_size": 3209,
+				"line_ending": "Unix",
+				"name": "MY_"
+			}
+		},
+		{
+			"file": "application/models/user_model.php",
+			"settings":
+			{
+				"buffer_size": 186,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/user.php",
+			"settings":
+			{
+				"buffer_size": 721,
 				"line_ending": "Unix"
 			}
 		}
@@ -52,6 +69,13 @@
 	},
 	"file_history":
 	[
+		"/var/www/fantasy/jcifantasy/application/config/autoload.php",
+		"/var/www/fantasy/jcifantasy/application/config/config.php",
+		"/var/www/fantasy/jcifantasy/application/config/routes.php",
+		"/var/www/fantasy/jcifantasy/.htaccess",
+		"/var/www/fantasy/jcifantasy/application/models/crud_model.php",
+		"/var/www/fantasy/jcifantasy/application/config/database.php",
+		"/var/www/fantasy/jcifantasy/application/views/welcome_message.php",
 		"/home/ryanangeles/Dropbox/Public/fantasy/index.html",
 		"/etc/phpmyadmin/apache.conf",
 		"/usr/share/phpmyadmin/.htaccess",
@@ -93,31 +117,85 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "application/views/welcome_message.php",
+					"file": "application/core/MY_Model.php",
 					"settings":
 					{
-						"buffer_size": 1933,
+						"buffer_size": 3209,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1933,
-								1933
+								439,
+								439
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"auto_name": "MY_",
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1122.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/models/user_model.php",
+					"settings":
+					{
+						"buffer_size": 186,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/controllers/user.php",
+					"settings":
+					{
+						"buffer_size": 721,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								637,
+								637
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -131,7 +209,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
