@@ -1,0 +1,44 @@
+#login .content {
+  width: 70%;
+  margin: 0 auto; }
+  #login .content h1 {
+    font-size: 3.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px #333333;
+    margin-bottom: 80px;
+    text-align: center; }
+  #login .content form fieldset {
+    display: block;
+    width: 330px;
+    padding: 15px 50px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative; }
+    #login .content form fieldset legend {
+      color: #F2802B;
+      font-size: 1.8em;
+      background-color: rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      padding: 10px 50px;
+      position: absolute;
+      left: 0;
+      bottom: 100%;
+      -moz-border-top-left-radius: 8px;
+      -webkit-border-top-left-radius: 8px;
+      border-top-left-radius: 8px;
+      -moz-border-top-right-radius: 8px;
+      -webkit-border-top-right-radius: 8px;
+      border-top-right-radius: 8px; }
+    #login .content form fieldset label {
+      font-size: 1.2em;
+      margin-bottom: 5px;
+      color: #CCCCCC;
+      display: block; }
+    #login .content form fieldset input:not([type="submit"]):not([type="file"]) {
+      width: 302px;
+      border-color: #F2802B;
+      -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 0, 0, 0.5); }
+    #login .content form fieldset .submitWrap {
+      text-align: right; }

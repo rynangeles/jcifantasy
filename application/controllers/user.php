@@ -1,24 +1,29 @@
 <?php 
 
-	class User extends CI_Controller{
-
-		function __construct(){
-            parent::__construct();
-			$this->load->model('user_model');
-        }
+	class User extends My_controller{
 
         public function index(){
-        	$data = array();
-        	$users = $this->get_users();
-        	if($users){
-        		$data['users'] = $users;
-        		/*sample display of records working!
-        		foreach ($users as $user) {
-	        		echo $user->first_name;
-	        	}
-	        	*/
-        	}
-		}
+
+            if($this->user_type != 1){
+
+                redirect('admin');
+
+            }else{
+
+                $data = array();
+                $data['page_id']        = 'user'; // <body id="$page_id">
+                $data['javascripts']    = array(); // javascripts to load
+                $data['stylesheets']    = array();  // stylesheets to load
+                $data['menus']          = $this->user_menu[$this->user_type]; //user menus
+                $data['users']          = $this->get_users();
+
+                $data['content'] = 'admin/user/user'; // view to load
+                $this->load->view('includes/base', $data);
+
+            }
+
+            
+        }
 
 		private function get_users(){
             if($this->user_model->get_all_records()){

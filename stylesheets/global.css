@@ -1,0 +1,204 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*
+ * These selection declarations have to be separate
+ * No text-shadow: twitter.com/miketaylr/status/12228805301
+ * Also: hot pink!
+ */
+::-moz-selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none; }
+
+::selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none; }
+
+/*=========================================
+	Clearfix for self clearing floated children
+=========================================*/
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */ }
+
+/*=========================================
+	SASS default variables
+=========================================*/
+/* ========================================
+	Links
+=========================================*/
+a:hover, a:active {
+  outline: 0; }
+
+/*=========================================
+	default styles
+=========================================*/
+input:not([type="submit"]):not([type="file"]), textarea, select {
+  border: 3px solid white;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 0 10px 0; }
+
+input:not([type="submit"]):not([type="file"]):focus, textarea:focus, select:focus {
+  outline: none; }
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #666666; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #666666; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #666666; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #666666; }
+
+.btn {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  border: 1px solid #dddddd;
+  padding: 8px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -khtml-border-radius: 3px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CCCCCC', endColorstr='#666666');
+  background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#666666));
+  background: -moz-linear-gradient(top, #cccccc, #666666);
+  background: -o-linear-gradient(top, #cccccc, #666666);
+  text-shadow: 1px 1px #aaaaaa;
+  cursor: pointer; }
+
+.btn:hover {
+  border: 1px solid #999999;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#AAAAAA', endColorstr='#444444');
+  background: -webkit-gradient(linear, left top, left bottom, from(#aaaaaa), to(#444444));
+  background: -moz-linear-gradient(top, #aaaaaa, #444444);
+  background: -o-linear-gradient(top, #aaaaaa, #444444); }
+
+.btnPrimary {
+  border: 1px solid #00b1f0;
+  color: #DDF0F0;
+  text-shadow: 1px 1px #034475;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0097CC', endColorstr='#04518C');
+  background: -webkit-gradient(linear, left top, left bottom, from(#0097cc), to(#04518c));
+  background: -moz-linear-gradient(top, #0097cc, #04518c);
+  background: -o-linear-gradient(top, #0097cc, #04518c); }
+
+.btnPrimary:hover {
+  border: 1px solid #0095c9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007CA8', endColorstr='#034475');
+  background: -webkit-gradient(linear, left top, left bottom, from(#007ca8), to(#034475));
+  background: -moz-linear-gradient(top, #007ca8, #034475);
+  background: -o-linear-gradient(top, #007ca8, #034475); }
+
+label {
+  display: inline-block; }
+
+.error, .alert {
+  color: #FF685D;
+  font-style: italic;
+  font-size: 0.9em; }
+
+.alert {
+  color: #E3BE65; }
+
+.inputError {
+  display: block;
+  text-align: right; }
+
+/*=========================================
+	Main Styles
+=========================================*/
+body {
+  background: black url("/fantasy/jcifantasy/images/main-bg.png") no-repeat center top;
+  font-family: arial;
+  font-size: 12px;
+  line-height: 1.3em;
+  color: #FFFFFF; }
+
+.mainContent {
+  width: 1024px;
+  margin: 10px auto 15px auto; }
+  .mainContent header {
+    margin-bottom: 30px; }
+    .mainContent header nav {
+      float: left; }
+      .mainContent header nav ul li {
+        display: inline; }
+        .mainContent header nav ul li a {
+          color: #DDDDDD;
+          text-decoration: none; }
+        .mainContent header nav ul li a:hover {
+          color: #FFFFFF; }
+    .mainContent header #logo {
+      display: block;
+      float: right; }
+  .mainContent footer {
+    margin-top: 15px;
+    text-align: center;
+    color: #CCCCCC;
+    font-size: 0.9em; }

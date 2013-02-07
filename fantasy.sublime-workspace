@@ -4,6 +4,110 @@
 		"selected_items":
 		[
 			[
+				"inl",
+				"inline"
+			],
+			[
+				"end",
+				"endif"
+			],
+			[
+				"user",
+				"user_type"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"cor",
+				"color"
+			],
+			[
+				"clear",
+				"clear_cache"
+			],
+			[
+				"pri",
+				"private"
+			],
+			[
+				"log",
+				"login"
+			],
+			[
+				"fas",
+				"flash_message"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"flash",
+				"flash_message"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"u",
+				"uppercase"
+			],
+			[
+				"border-col",
+				"border-color"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"java",
+				"javascripts"
+			],
+			[
+				"blo",
+				"block"
+			],
+			[
+				"te",
+				"test"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
 				"fot",
 				"footer	Tag"
 			],
@@ -28,7 +132,7 @@
 			"file": "application/models/user_model.php",
 			"settings":
 			{
-				"buffer_size": 186,
+				"buffer_size": 520,
 				"line_ending": "Unix"
 			}
 		},
@@ -36,7 +140,63 @@
 			"file": "application/controllers/user.php",
 			"settings":
 			{
-				"buffer_size": 721,
+				"buffer_size": 1007,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/core/MY_Controller.php",
+			"settings":
+			{
+				"buffer_size": 642,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/admin.php",
+			"settings":
+			{
+				"buffer_size": 1010,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/admin/home.php",
+			"settings":
+			{
+				"buffer_size": 149,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/helpers/my_functions_helper.php",
+			"settings":
+			{
+				"buffer_size": 451,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "stylesheets/sass/global.scss",
+			"settings":
+			{
+				"buffer_size": 5663,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/admin/user/user.php",
+			"settings":
+			{
+				"buffer_size": 1102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/includes/menu.php",
+			"settings":
+			{
+				"buffer_size": 535,
 				"line_ending": "Unix"
 			}
 		}
@@ -69,9 +229,22 @@
 	},
 	"file_history":
 	[
+		"/var/www/fantasy/jcifantasy/application/controllers/login.php",
+		"/var/www/fantasy/jcifantasy/application/views/includes/header.php",
+		"/var/www/fantasy/jcifantasy/application/views/frontend/login.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/logout.php",
+		"/var/www/fantasy/jcifantasy/stylesheets/sass/login.scss",
+		"/var/www/fantasy/jcifantasy/application/views/admin/user/user.php",
 		"/var/www/fantasy/jcifantasy/application/config/autoload.php",
-		"/var/www/fantasy/jcifantasy/application/config/config.php",
+		"/var/www/fantasy/jcifantasy/application/views/includes/javascripts.php",
 		"/var/www/fantasy/jcifantasy/application/config/routes.php",
+		"/var/www/fantasy/jcifantasy/application/views/includes/base.php",
+		"/var/www/fantasy/jcifantasy/application/views/includes/menu.php",
+		"/var/www/fantasy/jcifantasy/application/views/user/user.php",
+		"/var/www/fantasy/jcifantasy/application/views/includes/footer.php",
+		"/var/www/fantasy/jcifantasy/application/views/test.php",
+		"/home/ryanangeles/Dropbox/Public/templates/style_starter.css",
+		"/var/www/fantasy/jcifantasy/application/config/config.php",
 		"/var/www/fantasy/jcifantasy/.htaccess",
 		"/var/www/fantasy/jcifantasy/application/models/crud_model.php",
 		"/var/www/fantasy/jcifantasy/application/config/database.php",
@@ -99,6 +272,34 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$user",
+			"true",
+			"false",
+			"sess",
+			"flash_message",
+			"999",
+			"0.1",
+			"5px",
+			"left",
+			"3px",
+			"0.1",
+			"\n				      inset 0 0 8px  rgba(0,0,0,0.1),\n				            0 0 16px rgba(0,0,0,0.1);",
+			"0.1",
+			"1",
+			"submit",
+			"0D4594",
+			"006C91",
+			"04518C",
+			"0097CC",
+			"444444",
+			"AAAAAA",
+			"CCCCCC",
+			"666666",
+			"999999",
+			"CCCCCC",
+			"EEEEEE",
+			"333333",
+			"white",
 			"gedit"
 		],
 		"highlight": true,
@@ -117,7 +318,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -132,14 +333,16 @@
 						"selection":
 						[
 							[
-								439,
-								439
+								115,
+								115
 							]
 						],
 						"settings":
 						{
 							"auto_name": "MY_",
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 6,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -152,15 +355,15 @@
 					"file": "application/models/user_model.php",
 					"settings":
 					{
-						"buffer_size": 186,
+						"buffer_size": 520,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								97,
-								97
+								146,
+								146
 							]
 						],
 						"settings":
@@ -178,20 +381,209 @@
 					"file": "application/controllers/user.php",
 					"settings":
 					{
-						"buffer_size": 721,
+						"buffer_size": 1007,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								637,
-								637
+								549,
+								549
 							]
 						],
 						"settings":
 						{
 							"auto_name": "",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/core/MY_Controller.php",
+					"settings":
+					{
+						"buffer_size": 642,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28,
+								28
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/controllers/admin.php",
+					"settings":
+					{
+						"buffer_size": 1010,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								453,
+								453
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/views/admin/home.php",
+					"settings":
+					{
+						"buffer_size": 149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/helpers/my_functions_helper.php",
+					"settings":
+					{
+						"buffer_size": 451,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								310,
+								310
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "stylesheets/sass/global.scss",
+					"settings":
+					{
+						"buffer_size": 5663,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5375,
+								5375
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3251.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/views/admin/user/user.php",
+					"settings":
+					{
+						"buffer_size": 1102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								616,
+								616
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "application/views/includes/menu.php",
+					"settings":
+					{
+						"buffer_size": 535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								134,
+								134
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
