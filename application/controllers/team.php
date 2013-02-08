@@ -1,6 +1,6 @@
 <?php 
 
-	class User extends My_controller{
+	class Team extends My_controller{
 
         public function index(){
 
@@ -11,13 +11,13 @@
             }else{
 
                 $data = array();
-                $data['page_id']        = 'user'; // <body id="$page_id">
+                $data['page_id']        = 'team'; // <body id="$page_id">
                 $data['javascripts']    = array(); // javascripts to load
-                $data['stylesheets']    = array('user');  // stylesheets to load
-                $data['menus']          = $this->user_menu[$this->user_type]; //user menus
+                $data['stylesheets']    = array();  // stylesheets to load
+                $data['menus']          = $this->user_menu[$this->user_type]; //user menus My_controller
                 $data['users']          = $this->get_users();
 
-                $data['content'] = 'admin/user/user'; // view to load
+                $data['content'] = 'admin/team/team'; // view to load
                 $this->load->view('includes/base', $data);
 
             }
@@ -33,6 +33,6 @@
 
 	}
 
-/* End of file user.php */
-/* Location: ./application/controller/user.php */
+/* End of file team.php */
+/* Location: ./application/controller/team.php */
 	

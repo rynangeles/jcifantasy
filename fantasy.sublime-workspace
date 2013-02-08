@@ -199,6 +199,14 @@
 				"buffer_size": 535,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "application/config/config.php",
+			"settings":
+			{
+				"buffer_size": 12851,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -318,7 +326,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 10,
 			"sheets":
 			[
 				{
@@ -368,7 +376,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -558,7 +567,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -580,6 +590,33 @@
 							[
 								134,
 								134
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "application/config/config.php",
+					"settings":
+					{
+						"buffer_size": 12851,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								522,
+								522
 							]
 						],
 						"settings":
