@@ -34,11 +34,15 @@
       margin-bottom: 5px;
       color: #CCCCCC;
       display: block; }
-    #login .content form fieldset input:not([type="submit"]):not([type="file"]) {
+    #login .content form fieldset input[type="text"], #login .content form fieldset input[type="password"] {
+      height: 20px;
       width: 302px;
-      border-color: #F2802B;
+      border: 3px solid #f2802b;
       -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 0, 0, 0.5);
       -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 0, 0, 0.5);
-      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 0, 0, 0.5); }
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      margin: 0 0 10px 0;
+      background-color: rgba(255, 255, 255, 0.6); }
     #login .content form fieldset .submitWrap {
       text-align: right; }

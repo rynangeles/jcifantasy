@@ -94,23 +94,43 @@ a:hover, a:active { outline: 0; }
 /*=========================================
 	default styles
 =========================================*/
-input:not([type="submit"]):not([type="file"]):not([type="image"]),textarea,select{
-	border: 3px solid white; 
-    -webkit-box-shadow: 
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    -moz-box-shadow: 
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    box-shadow: 
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    padding: 10px;
-    background: rgba(255,255,255,0.5);
-    margin: 0 0 10px 0;
+
+.inputGroup{
+	width: 342px;
+	padding: 5px 50px ;
+}
+.inputGroup.action{
+	text-align:right;
 }
 
-input:not([type="submit"]):not([type="file"]):not([type="image"]):focus,textarea:focus,select:focus{
+label{
+	width: 120px;
+	display:inline-block;
+
+}
+
+input[type="text"],input[type="password"],textarea,select{
+	border: 1px solid #333333; 
+}
+
+input[type="file"]{
+	height: 25px;
+	width: 222px;
+}
+
+input[type="text"],input[type="password"]{
+	height: 25px;
+	width: 200px;
+	padding:0 10px;
+}
+
+select{
+	height:27px;
+	width: 222px;
+	padding:3px 0 3px 10px;
+}	
+
+input:focus,textarea:focus,select:focus{
 	 outline: none;
 }
 
@@ -170,10 +190,6 @@ input:not([type="submit"]):not([type="file"]):not([type="image"]):focus,textarea
     background: -webkit-gradient(linear, left top, left bottom, from(#007CA8), to(#034475));
     background: -moz-linear-gradient(top, #007CA8, #034475);
     background: -o-linear-gradient(top, #007CA8, #034475);
-}
-
-label{
-	display: inline-block;
 }
 
 .error,.alert{

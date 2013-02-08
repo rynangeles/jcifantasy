@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-		<title>Namoco Property Management System</title>
+		<title>JCI Manila Basketball League</title>
 		<!--[if lt IE 9]>
 			<script src="<?php echo base_url();?>javascripts/html5.js"></script>
 			<script src="<?php echo base_url();?>javascripts/IE9.js"></script>
