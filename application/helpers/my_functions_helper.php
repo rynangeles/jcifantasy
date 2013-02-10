@@ -30,6 +30,49 @@
 		}
 	}
 
+	if ( !function_exists('get_menus')){
 
+		function get_menus(){
+
+			$CI =& get_instance();
+
+            $user_type = $CI->session->userdata('user_type');
+
+			$user_menu = array(1=>array('user','team','player','system'),2=>array('player','draft'));
+
+			return $user_menu[$user_type];
+
+		}
+
+	}
+
+	if( !function_exists('get_manager_name')){
+
+		function get_manager_name($manager_id){
+
+			$CI =& get_instance();
+
+			$CI->db->where('id', $manager_id);
+
+			$query = $CI->db->get('user');
+
+			$manager = array_shift($query->result_array());
+
+			return ucfirst($manager['first_name']) . ' ' .ucfirst($manager['last_name']);
+		}
+
+	}
+
+	if( !function_exists('get_status')){
+
+		function get_status($status){
+
+			$active = array(0=>'Inactive',1=>'Active');
+		
+			return $active[$status];
+		}
+	}
+
+	
 /* End of file My_function_helpers.php */
 /* Location: ./application/helpers/My_function_helpers.php */

@@ -45,4 +45,16 @@
 
 <!-- load javascripts -->
 <?php $this->load->view('includes/javascripts'); ?>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+	$('.del').click(function(e){
+		
+		var del = confirm('Are you sure you want to delete this item');
+
+		if(!del){
+
+			return false;
+			
+		}
+
+	});
+</script>

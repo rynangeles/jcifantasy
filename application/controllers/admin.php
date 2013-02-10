@@ -7,7 +7,6 @@
             $data['page_id']        = 'admin'; // <body id="$page_id">
             $data['javascripts']    = array(); // javascripts to load
             $data['stylesheets']    = array('admin');  // stylesheets to load
-            $data['menus']          = $this->user_menu[$this->user_type]; //user menus
 
             $data['content'] = 'admin/home'; // view to load
             $this->load->view('includes/base', $data);

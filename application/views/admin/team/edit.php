@@ -7,8 +7,8 @@
 
 <div class="content">
 	<div class="formWrap clearfix">
-		<h2>Create Team</h2>
-		<?php echo form_open_multipart('team/create'); ?>
+		<h2>Edit Team</h2>
+		<?php echo form_open_multipart(); ?>
 
 		<div class="inputGroup">
 			<?php echo form_label('Team Logo', 'team_logo'); ?>
@@ -26,21 +26,21 @@
 		<div class="inputGroup">
 			<?php 
 				echo form_label('Team Name', 'team_name');
-				echo form_input(array('name'=>'team_name', 'placeholder'=>'Team Name'),set_value('team_name'));
+				echo form_input(array('name'=>'team_name', 'placeholder'=>'Team Name'),set_value('team_name',$default->team_name));
 				echo form_error('team_name');
 			?>
 		</div>
 		<div class="inputGroup">
 			<?php 
 				echo form_label('Coach First Name', 'coach_first_name');
-				echo form_input(array('name'=>'coach_first_name', 'placeholder'=>'Coach First Name'),set_value('coach_first_name'));
+				echo form_input(array('name'=>'coach_first_name', 'placeholder'=>'Coach First Name'),set_value('coach_first_name',$default->coach_first_name));
 				echo form_error('coach_first_name');
 			?>
 		</div>
 		<div class="inputGroup">
 			<?php 
 				echo form_label('Coach Last Name', 'coach_last_name');
-				echo form_input(array('name'=>'coach_last_name', 'placeholder'=>'Coach Last Name'),set_value('coach_last_name'));
+				echo form_input(array('name'=>'coach_last_name', 'placeholder'=>'Coach Last Name'),set_value('coach_last_name',$default->coach_last_name));
 				echo form_error('coach_last_name');
 			?>
 		</div>

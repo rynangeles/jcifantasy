@@ -3,7 +3,6 @@
 	class My_controller extends CI_Controller{
 
         var $user_type = '';
-        var $user_menu = array(1=>array('user','team','player','system'),2=>array('player','draft'));
 
 		function __construct(){
 

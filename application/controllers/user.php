@@ -14,7 +14,6 @@
                 $data['page_id']        = 'user'; // <body id="$page_id">
                 $data['javascripts']    = array(); // javascripts to load
                 $data['stylesheets']    = array('user');  // stylesheets to load
-                $data['menus']          = $this->user_menu[$this->user_type]; //user menus
                 $data['users']          = $this->get_users();
 
                 $data['content'] = 'admin/user/user'; // view to load

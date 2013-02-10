@@ -1,0 +1,26 @@
+/* =====================================
+					TEAM
+======================================*/
+table thead th:first-child {
+  width: 90px; }
+table tbody tr td {
+  vertical-align: middle; }
+
+/* =====================================
+				TEAM CREATE
+======================================*/
+.inputGroup label {
+  vertical-align: top; }
+.inputGroup input[type="file"] {
+  width: 200px; }
+.inputGroup .imageWrap {
+  display: inline-block;
+  width: 200px; }
+  .inputGroup .imageWrap .image {
+    width: 150px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 5px solid #333333;
+    margin: 0 auto 15px; }
+  .inputGroup .imageWrap .image.loading {
+    background: rgba(255, 255, 255, 0.8) url("/fantasy/jcifantasy/images/ajax-loader.gif") no-repeat center center; }

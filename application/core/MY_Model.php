@@ -3,59 +3,96 @@
 class My_model extends CI_Model{
 
 	var $table = '';
+      var $primary_key  = '';
 
-        public function get_all_records(){
+      public function get_all_records(){
+
+            $query = $this->db->get($this->table);
+
+            if($query->num_rows() > 0){
+
+                  foreach($query->result() as $row){
+
+                  $records[] = $row;
+
+            }
+
+            return $records;
+
+            }
+
+      }
+
+      public function insert_record($data){
+
+            if($this->db->insert($this->table, $data)){
+
+                  return $this->db->insert_id();
+
+            }else{
+
+                  return false;
+
+            }
+
+      }
+
+
+      public function get_by_id($id){
+
+            $this->db->where($this->primary_key , $id);
+
             
             $query = $this->db->get($this->table);
-            
+
+
+
             if($query->num_rows() > 0){
-            
-                foreach($query->result() as $row){
-            
-                    $records[] = $row;
-            
-                }
-            
-                return $records;
-            
+
+                  foreach($query->result() as $row){
+
+                        $records[] = $row;
+
+                  }
+
+            return $records;
+
             }
-        
-        }
 
+      }
 
-      //   public function get_by_id($table, $id_col, $id){
+      public function update_record($id, $data){
 
-      //       $this->db->where($id_col, $id);
+            $this->db->where($this->primary_key, $id);
 
-      //       if(isset($table['join']) && is_array($table['join']) && !empty($table['join'])){
+            if($this->db->update($this->table, $data)){
 
-      //           foreach ($table['join'] as $joiningTable => $joiningKeys) {
+                  return $id;
 
-      //               $joiningKey = explode(",", $joiningKeys);
+            }else{
 
-      //               $this->db->join($joiningTable, $joiningKey[0]."=".$joiningKey[1]);
+             return FALSE;
 
-      //           }
+            }
 
-      //       }
+      }
 
-      //       $query = $this->db->get($table['table']);
+      public function delete_record($id){
 
-            
+            $this->db->where($this->primary_key, $id);
 
-      //       if($query->num_rows() > 0){
+            if($this->db->delete($this->table)){
 
-      //           foreach($query->result() as $row){
+                  return TRUE;
 
-      //               $project[] = $row;
+            }else{
 
-      //           }
+                  return FALSE;
 
-      //           return $project;
+            }
 
-      //       }
+      }
 
-      //   }
 
       //   public function get_by_sql($sql){
 
@@ -79,19 +116,7 @@ class My_model extends CI_Model{
 
       //   }
 
-      //   public function insert_record($table, $data){
-
-      //       if($this->db->insert($table, $data)){
-
-      //           return $this->db->insert_id();
-
-      //       }else{
-
-      //           return false;
-
-      //       }
-
-      //   }
+      
 
       //   public function insert_batch_record($table, $data){
             
@@ -108,21 +133,7 @@ class My_model extends CI_Model{
 
         
 
-      //   public function update_record($table, $id_col, $id, $data){
-
-      //       $this->db->where($id_col, $id);
-
-      //       if($this->db->update($table, $data)){
-
-      //           return $id;
-
-      //       }else{
-
-      //           false;
-
-      //       }
-
-      //   }
+      
 
       //   public function update_batch_record($table, $data, $where_key){
       //       $this->db->trans_start();
@@ -136,21 +147,7 @@ class My_model extends CI_Model{
       //       } 
       //   }
 
-      //   public function delete_record($table, $id_col, $id){
-
-      //       $this->db->where($id_col, $id);
-
-      //       if($this->db->delete($table)){
-
-      //           return true;
-
-      //       }else{
-
-      //           return false;
-
-      //       }
-
-      //   }
+      
 
     } 
 

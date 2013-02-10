@@ -9,6 +9,12 @@
 		</div>
 		<?php echo anchor('team/create', 'Create Team', array('class'=>'btn btnPrimary btnCreate')); ?>
 	</div>
+
+	<?php if(isset($success_message)): ?>
+		<div class="success message">
+			<?php echo $success_message; ?>
+		</div>
+	<?php endif; ?>
 	<table cellpadding="0" cellspacing="0" border="0">
 		<thead>
 			<tr>
@@ -25,13 +31,13 @@
 		<tbody>
 			<?php if(isset($teams)): foreach($teams as $team): ?>
 			<tr>
-				<td><img src="<?php echo base_url() . 'images/team/thumb/' . $team->team_logo_thumb; ?>" class="thumb"/></td>
+				<td><img width="90" src="<?php echo base_url() . 'uploads/team/thumb/' . $team->team_logo_thumb; ?>" class="thumb"/></td>
 				<td><?php echo $team->team_name; ?></td>
 				<td><?php echo get_manager_name($team->manager_id); ?></td>
 				<td><?php echo $team->coach_first_name . ' ' . $team->coach_last_name; ?></td>
 				<td><?php echo unix_to_human(strtotime($team->created)); ?></td>
 				<td><?php echo ($team->queue != '') ? $team->queue : '0'; ?></td>
-				<td><?php echo get_team_status($team->status); ?></td>
+				<td><?php echo get_status($team->active); ?></td>
 				<td>
 					<?php echo anchor('team/view/' . $team->id, 'View'); ?> |
 					<?php echo anchor('team/edit/' . $team->id, 'Edit'); ?> |
@@ -45,4 +51,16 @@
 
 <!-- load javascripts -->
 <?php $this->load->view('includes/javascripts'); ?>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+	$('.del').click(function(e){
+		
+		var del = confirm('Are you sure you want to delete this item');
+
+		if(!del){
+
+			return false;
+			
+		}
+
+	});
+</script>
