@@ -22,6 +22,10 @@
 		<?php if(isset($not_loggedin_message)): ?>
 		<span class="error"><?php echo $not_loggedin_message; ?></span>
 		<?php endif; ?>
+
+		<?php if(isset($inactive_message)): ?>
+		<span class="error"><?php echo $inactive_message; ?></span>
+		<?php endif; ?>
 		<!--end  messaging -->
 
 		<div class="submitWrap">

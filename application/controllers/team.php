@@ -2,9 +2,6 @@
 
 	class Team extends My_controller{
 
-
-        var $upload_temp;
-
         function __construct(){
 
             parent::__construct();
@@ -81,7 +78,7 @@
 
                         if($upload_logo['status'] == TRUE){
 
-                            $team_logo  = $upload_logo['data']['file_name'];
+                            $team_logo  = 'large-' . $upload_logo['data']['file_name'];
                             $team_thumb = 'thumb-' . $upload_logo['data']['file_name'];
 
                         }else{
@@ -187,7 +184,7 @@
 
                         if($upload_logo['status'] == TRUE){
 
-                            $team_logo  = $upload_logo['data']['file_name'];
+                            $team_logo  = 'large-' . $upload_logo['data']['file_name'];
                             $team_thumb = 'thumb-' . $upload_logo['data']['file_name'];
 
                         }else{

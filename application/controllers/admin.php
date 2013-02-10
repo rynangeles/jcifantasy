@@ -8,6 +8,10 @@
             $data['javascripts']    = array(); // javascripts to load
             $data['stylesheets']    = array('admin');  // stylesheets to load
 
+            $this->load->model('team_model');
+
+            $data['teams'] = $this->team_model->get_all_records();
+
             $data['content'] = 'admin/home'; // view to load
             $this->load->view('includes/base', $data);
 		}

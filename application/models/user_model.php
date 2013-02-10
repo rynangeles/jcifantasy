@@ -22,6 +22,26 @@
 			return FALSE;
 
 		}
+
+		public function get_all_active(){
+
+			$this->db->where('active', 1);
+
+			$query = $this->db->get('user');
+
+			if($query->num_rows() > 0){
+
+                  foreach($query->result() as $row){
+
+                  $records[] = $row;
+
+            }
+
+            return $records;
+
+            }
+
+		}
 		
 
 	}

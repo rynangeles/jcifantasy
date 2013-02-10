@@ -9,6 +9,13 @@
 		</div>
 		<?php echo anchor('user/create', 'Create User', array('class'=>'btn btnPrimary btnCreate')); ?>
 	</div>
+
+	<?php if(isset($success_message)): ?>
+		<div class="success message">
+			<?php echo $success_message; ?>
+		</div>
+	<?php endif; ?>
+	
 	<table cellpadding="0" cellspacing="0" border="0">
 		<thead>
 			<tr>

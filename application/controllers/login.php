@@ -50,25 +50,35 @@
 
                 }
 
-            }
+            }else{
 
-            $logout_message = $this->session->flashdata('logout_message');
-            $not_loggedin_message = $this->session->flashdata('not_loggedin');
+                $logout_message         = $this->session->flashdata('logout_message');
+                $not_loggedin_message   = $this->session->flashdata('not_loggedin');
+                $inactive_message       = $this->session->flashdata('inactive_message');
 
-            if($logout_message){
+                if($inactive_message){
 
-                $data['logout_message'] = $logout_message;
+                    $data['inactive_message'] = $inactive_message;
+
+                }
+
+                if($logout_message){
+
+                    $data['logout_message'] = $logout_message;
+
+                }
+                
+                if($not_loggedin_message){
+
+                    $data['not_loggedin_message'] = $not_loggedin_message;
+
+                }
+
+                $data['content'] = 'frontend/login'; // view to load
+                $this->load->view('includes/base', $data);
 
             }
             
-            if($not_loggedin_message){
-
-                $data['not_loggedin_message'] = $not_loggedin_message;
-
-            }
-
-            $data['content'] = 'frontend/login'; // view to load
-            $this->load->view('includes/base', $data);
 		}
 
         private function validate_credential(){
@@ -76,12 +86,23 @@
             $validate = $this->user_model->validate();
 
             if(isset($validate) && $validate != FALSE){
+
+                if($validate['active'] == 0){
+
+                    $this->session->set_flashdata('inactive_message', 'This user is inactive');
+
+                    redirect('login');
+
+                    return FALSE;
+
+                }else{
                 
-                $data = array('user_id' => $validate['id'], 'user_type' => $validate['type'], 'logged_in' => TRUE);
+                    $data = array('user_id' => $validate['id'], 'user_type' => $validate['type'], 'logged_in' => TRUE);
 
-                $this->session->set_userdata($data);
+                    $this->session->set_userdata($data);
 
-                return TRUE;
+                    return TRUE;
+                }
             }
 
             return FALSE;

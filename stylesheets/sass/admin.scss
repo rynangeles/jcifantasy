@@ -1,0 +1,49 @@
+#admin{
+
+	.content{
+
+		h1{
+			font-size: 3.2em;
+			font-weight: bold;
+			text-shadow: 2px 2px #333333;
+			margin-bottom: 20px;
+			text-align: center;
+
+		}
+
+		.teamWrap{
+			float: left;
+			height: 250px;
+			margin-left: 15px;
+
+			.imgWrap{
+				padding: 5px;
+				background-color: #FFFFFF;
+				display: block;
+				height: 150px;
+				line-height: 148px;
+				margin-bottom: 10px;
+
+				img{
+					margin: 0;
+					vertical-align: middle;
+				}
+			}
+
+			h3{
+				text-align: center;
+				font-size: 1.5em;
+			}
+			h4{
+				margin: 5px 0;
+				font-size: 1.1em;
+				.label{
+					display: inline-block;
+					width: 80px;
+				}
+			}
+		}
+
+	}
+
+}
