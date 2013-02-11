@@ -4,8 +4,8 @@
 	<nav>
 		<ul>
 			<li><a href="<?php echo base_url();?>admin">Home</a> | </li>
-			<?php $menus = get_menus(); if(isset($menus)): foreach($menus as $menu): ?>
-			<li><a href="<?php echo base_url().$menu;?>"><?php echo ucfirst($menu); ?></a> | </li>
+			<?php $menus = get_menus(); if(isset($menus)): foreach($menus as $key => $menu): ?>
+			<li><a href="<?php echo base_url().$key;?>"><?php echo ucfirst($menu); ?></a> | </li>
 			<?php endforeach; endif; ?>
 			<li><a href="<?php echo base_url();?>logout">Logout</a></li>
 		</ul>

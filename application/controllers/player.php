@@ -1,6 +1,6 @@
 <?php 
 
-	class User extends My_controller{
+	class Player extends My_controller{
 
         function __construct(){
 
@@ -15,29 +15,38 @@
 
             $this->load->library('form_validation');
 
+            $this->load->model('player_model');
+
         }
 
         public function index(){
 
             $data = array();
-            $data['page_id']        = 'user'; // <body id="$page_id">
+            $data['page_id']        = 'player'; // <body id="$page_id">
             $data['javascripts']    = array(); // javascripts to load
-            $data['stylesheets']    = array('user');  // stylesheets to load
-            $data['users']          = $this->get_users();
+            $data['stylesheets']    = array('player');  // stylesheets to load
+            $data['players']        = $this->get_players();
 
-            $data['content'] = 'admin/user/user'; // view to load
+            $success_message        = $this->session->flashdata('success_message');
+
+            if(isset($success_message)){
+
+                $data['success_message'] = $success_message;
+                
+            }
+
+            $data['content'] = 'admin/player/player'; // view to load
             $this->load->view('includes/base', $data);
 
-            
         }
 
         public function create(){
 
             $data = array();
-            $data['page_id']            = 'user-create'; // <body id="$page_id">
+            $data['page_id']            = 'player-create'; // <body id="$page_id">
             $data['javascripts']        = array(); // javascripts to load
-            $data['stylesheets']        = array('user');  // stylesheets to load
-            $data['content']            = 'admin/user/create'; // view to load
+            $data['stylesheets']        = array('player');  // stylesheets to load
+            $data['content']            = 'admin/player/create'; // view to load
 
             if($this->input->post('submit')){
 
@@ -91,11 +100,11 @@
 
         }
 
-		private function get_users(){
+		private function get_players(){
 
-            if($this->user_model->get_all_active()){
+            if($this->player_model->get_all_active()){
 
-                return $this->user_model->get_all_active();
+                return $this->player_model->get_all_active();
 
             }
             

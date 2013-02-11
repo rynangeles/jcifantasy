@@ -38,7 +38,11 @@
 
             $user_type = $CI->session->userdata('user_type');
 
-			$user_menu = array(1=>array('user','team','player','system'),2=>array('player','draft'));
+			$user_menu = array(
+					1=>array(
+						'user'=>'user','team'=>'team','player'=>'player','team/draw_lot'=>'draw lots'),
+					2=>array('player'=>'player','draft'=>'draft')
+				);
 
 			return $user_menu[$user_type];
 
@@ -70,6 +74,16 @@
 			$active = array(0=>'Inactive',1=>'Active');
 		
 			return $active[$status];
+		}
+	}
+
+	if( !function_exists('readable_position')){
+
+		function readable_position($position_id){
+
+			$position = array(1=>'PG',2=>'SG',3=>'SF',4=>'PF',5=>'C');
+		
+			return $position[$position_id];
 		}
 	}
 

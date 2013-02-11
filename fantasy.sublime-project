@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "/var/www/fantasy"
+		},
+		{
+			"path": "/home/ryanangeles/Dropbox/Public/pickAnum"
 		}
 	]
 }

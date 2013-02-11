@@ -20,6 +20,7 @@
             $data['page_id']        = 'login'; // <body id="$page_id">
             $data['javascripts']    = array(); // javascripts to load
             $data['stylesheets']    = array('login');  // stylesheets to load
+            $data['content']        = 'frontend/login'; // view to load
 
             if($this->input->post('submit')){
 
@@ -34,17 +35,15 @@
 
                 }else{
 
-                    if($this->validate_credential()){ 
+                    $validate = $this->validate_credential();
 
-                        if(is_logged_in()){ 
-
-                            redirect('admin'); 
-
-                        }
-
-                    }else{
+                    if($validate == FALSE){ 
 
                         $data['invalid_login'] = 'Your username/password combination incorrect.';
+
+                    }else{
+                        
+                        $this->do_login($validate);
                     
                     }
 
@@ -74,12 +73,41 @@
 
                 }
 
-                $data['content'] = 'frontend/login'; // view to load
-                $this->load->view('includes/base', $data);
-
             }
+                
+            $this->load->view('includes/base', $data);
             
 		}
+
+        public function do_login($data){
+
+            if($data['is_active']){
+
+                $last_login = array( 'last_login' => date('Y-m-d H:i:s') );
+
+                // update last login on this user
+                $updated_id = $this->user_model->update_record($data['user_id'], $last_login);
+
+                if($updated_id){
+
+                    $this->session->set_userdata($data);
+
+                    redirect('admin');
+
+                }else{
+
+                    redirect('login');
+
+                } 
+
+            }else{
+
+                $this->session->set_flashdata('inactive_message', 'This user is inactive');
+
+                redirect('login');
+            }
+
+        }
 
         private function validate_credential(){
 
@@ -87,25 +115,21 @@
 
             if(isset($validate) && $validate != FALSE){
 
+                $data = array('user_id' => $validate['id'], 'user_type' => $validate['type'], 'is_active' => TRUE, 'logged_in' => TRUE);
+
                 if($validate['active'] == 0){
 
-                    $this->session->set_flashdata('inactive_message', 'This user is inactive');
+                    $data['is_active'] = FALSE;
 
-                    redirect('login');
-
-                    return FALSE;
-
-                }else{
-                
-                    $data = array('user_id' => $validate['id'], 'user_type' => $validate['type'], 'logged_in' => TRUE);
-
-                    $this->session->set_userdata($data);
-
-                    return TRUE;
                 }
-            }
 
-            return FALSE;
+                return $data;
+
+            }else{
+
+                return FALSE;
+
+            }
         }
 
 	}

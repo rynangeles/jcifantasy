@@ -24,3 +24,23 @@ table tbody tr td {
     margin: 0 auto 15px; }
   .inputGroup .imageWrap .image.loading {
     background: rgba(255, 255, 255, 0.8) url("/fantasy/jcifantasy/images/ajax-loader.gif") no-repeat center center; }
+
+/* =====================================
+				DRAWLOTS
+======================================*/
+#slides {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
+
+#slides > div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px; }
+  #slides > div img {
+    width: 200px; }

@@ -264,6 +264,53 @@
 
         }
 
+        public function draw_lot(){
+
+            $data = array();
+            $data['page_id']            = 'team-drawlot'; // <body id="$page_id">
+            $data['javascripts']        = array('ajaxupload'); // javascripts to load
+            $data['stylesheets']        = array('team');  // stylesheets to load
+            $data['content']            = 'admin/team/draw_lot'; // view to load
+            $data['teams']              = $this->get_unqueued_teams();  //return teams that doesnt have queue yet
+            $data['queue']              = $this->get_next_queue(); //returns the next queue
+
+            if($this->input->post('submit')){
+
+                $data = array( 'queue' => $this->input->post('queue_id'));
+
+                $this->team_model->table        = 'team_queue';
+                $this->team_model->primary_key  = 'team_id';
+
+                $updated_id = $this->team_model->update_record($this->input->post('team_id'), $data);
+
+                if($updated_id){
+
+                    $this->session->set_flashdata('success_message', 'Draw lot successful');
+
+                    redirect('team/draw_lot');
+                }
+            }
+
+            $this->load->view('includes/base', $data);
+
+        }
+
+        private function get_next_queue(){
+
+            $queue = $this->team_model->last_queue();
+
+            return ($queue['queue']+1);
+        }
+
+        private function get_unqueued_teams(){
+
+            if($this->team_model->all_unqueued_teams()){
+
+                return $this->team_model->all_unqueued_teams();
+
+            }
+        }
+
         private function upload($id){
 
             if(isset($_FILES['team_logo']) && !empty($_FILES['team_logo']['name'])){

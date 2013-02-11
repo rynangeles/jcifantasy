@@ -93,6 +93,19 @@ class My_model extends CI_Model{
 
       }
 
+      public function insert_batch_record($data){
+
+            if($this->db->insert_batch($this->table, $data)){
+
+                  return $this->db->insert_id();
+
+            }else{
+
+            return FALSE;
+
+            }
+      }
+
 
       //   public function get_by_sql($sql){
 

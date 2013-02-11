@@ -2,6 +2,19 @@
 
 	class Admin extends My_controller{
 
+        function __construct(){
+
+            parent::__construct();
+
+            if($this->user_type != 1){
+
+                redirect('admin');
+                
+
+            }
+            
+        }
+
         public function index(){
         	$data = array();
             $data['page_id']        = 'admin'; // <body id="$page_id">

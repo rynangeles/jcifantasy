@@ -153,6 +153,43 @@
 
 		}
 
+        public function all_unqueued_teams(){
+
+            $this->db->select('*');
+            $this->db->from('team');
+            $this->db->join('team_queue', 'team_queue.team_id = team.id', 'left');
+            $this->db->where(array('team.active'=>1, 'team_queue.queue'=>0));
+
+            $query = $this->db->get();
+
+            if($query->num_rows() > 0){
+            
+                foreach($query->result() as $row){
+            
+                    $records[] = $row;
+            
+                }
+            
+                return $records;
+            
+            }
+
+        }
+
+        public function last_queue(){
+
+            $this->db->select_max('queue');
+
+            $query = $this->db->get('team_queue');
+
+            if($query->num_rows() == 1){
+
+                return array_shift($query->result_array());
+            }
+
+            return FALSE;
+        }
+
 	}
 
 /* End of file team_model.php */

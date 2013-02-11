@@ -35,7 +35,7 @@
 				<td><?php echo $team->team_name; ?></td>
 				<td><?php echo get_manager_name($team->manager_id); ?></td>
 				<td><?php echo $team->coach_first_name . ' ' . $team->coach_last_name; ?></td>
-				<td><?php echo unix_to_human(strtotime($team->created)); ?></td>
+				<td><?php echo date('d M Y g:i a',strtotime($team->created)); ?></td>
 				<td><?php echo ($team->queue != '') ? $team->queue : '0'; ?></td>
 				<td><?php echo get_status($team->active); ?></td>
 				<td>
@@ -52,15 +52,21 @@
 <!-- load javascripts -->
 <?php $this->load->view('includes/javascripts'); ?>
 <script type="text/javascript">
-	$('.del').click(function(e){
-		
-		var del = confirm('Are you sure you want to delete this item');
 
-		if(!del){
+	$(function(){
 
-			return false;
+		$('.del').click(function(e){
 			
-		}
+			var del = confirm('Are you sure you want to delete this item');
+
+			if(!del){
+
+				return false;
+				
+			}
+
+		});
 
 	});
+	
 </script>

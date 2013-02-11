@@ -37,8 +37,8 @@
 				<td><?php echo $user->last_name; ?></td>
 				<td><?php echo $user->email; ?></td>
 				<td><?php echo get_user_type($user->type); ?></td>
-				<td><?php echo unix_to_human(strtotime($user->created)); ?></td>
-				<td><?php echo unix_to_human(strtotime($user->last_login)); ?></td>
+				<td><?php echo date('d M Y g:i a',strtotime($user->created)); ?></td>
+				<td><?php echo date('d M Y g:i a',strtotime($user->last_login)); ?></td>
 				<td>
 					<?php echo anchor('user/view/' . $user->id, 'View'); ?> |
 					<?php echo anchor('user/edit/' . $user->id, 'Edit'); ?> |
@@ -53,15 +53,21 @@
 <!-- load javascripts -->
 <?php $this->load->view('includes/javascripts'); ?>
 <script type="text/javascript">
-	$('.del').click(function(e){
-		
-		var del = confirm('Are you sure you want to delete this item');
 
-		if(!del){
+	$(function(){
 
-			return false;
+		$('.del').click(function(e){
 			
-		}
+			var del = confirm('Are you sure you want to delete this item');
+
+			if(!del){
+
+				return false;
+				
+			}
+
+		});
 
 	});
+	
 </script>
