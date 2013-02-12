@@ -1,21 +1,61 @@
 <div class="content">
-	<div class="slideWrap">
+	<h1>Draw Lots</h1>
+	<div class=" clearfix">
+
+		<?php if(isset($turns)): foreach ($turns as $turn): ?>
+		<div class="accending">
+			<h2>
+				<?php 
+					if($turn->queue == 1){
+
+						echo $turn->queue . 'st';
+
+					}elseif($turn->queue == 2){
+
+						echo $turn->queue . 'nd';
+
+					}elseif($turn->queue == 3){
+
+						echo $turn->queue . 'rd';
+
+					}else{
+
+						echo $turn->queue . 'th';
+
+					}
+				?>
+			</h2>
+
+			<span class="imgWrap">
+				<img src="<?php echo base_url() . 'uploads/team/' . $turn->team_logo; ?>">
+			</span>
+			<h3><?php echo $turn->team_name; ?></h3>
+			<h4><span class="label">Head Coach:</span> <?php echo ucfirst($turn->coach_first_name) . ' ' . ucfirst($turn->coach_last_name); ?></h4>
+			<h4><span class="label">Manager :</span> <?php echo get_manager_name($turn->manager_id); ?></h4>
+			
+		</div>
+		<?php endforeach; endif; ?>
+
+		<div class="slideWrap">
+		<h2>Spin &amp; Draw</h2>
 		<div id="slides">
 			<?php if(isset($teams)): foreach ($teams as $team): ?>
 			<div>
-				<img team_id="<?php echo $team->id; ?>" src="<?php echo base_url() . 'uploads/team/thumb/' . $team->team_logo_thumb; ?>">
+				<img team_id="<?php echo $team->id; ?>" src="<?php echo base_url() . 'uploads/team/' . $team->team_logo; ?>">
 			</div>
 			<?php endforeach; endif; ?>
 		</div>
-		<div id="timer"></div>
+
 		<div class="slideFormWrap">
 			<?php echo form_open('team/draw_lot',array('class' => 'drawLotForm', 'id' => 'draw-lot-form'),array('team_id' => '', 'queue_id' => $queue)); ?>
 			<div class="actionWrap">
-				<?php echo form_submit(array('class'=>'btn btnPrimary','id'=>'draw-btn','name'=>'submit', 'value'=>'Draw'));?>
+				<?php echo form_submit(array('class'=>'btn spin','id'=>'draw-btn','name'=>'submit', 'value'=>'Spin'));?>
 			</div>
 			<?php echo form_close(); ?>
 		</div>
 	</div>
+	</div>
+	
 </div>
 
 <!-- load javascripts -->
@@ -30,8 +70,8 @@
 
 	});
 
-	// slides the images
-	var slide = setInterval(slide, 70);
+	// init spin image
+	var spin;
 
 	$(function(){
 
@@ -40,16 +80,41 @@
 
 			$("#slides > div:gt(0)").hide();
 
+			//draw button and submit the form for queueing
+			$('#draw-btn').click(function(e){
+
+				if($(this).hasClass('spin')){
+
+					e.preventDefault();
+
+					spin = setInterval(slide, 70);
+
+					$(this).removeClass('spin').addClass('draw btnPrimary').val('Draw');
+
+				}else{
+
+					draw();
+
+					$(this).removeClass('draw').addClass('spin').val('Spin');
+
+				}
+			});
+
+		}else if($("#slides > div").length < 1){
+
+			$(".slideWrap").hide();
+
 		}else{
 
 			$("#slides > div").addClass('picked');
 
-			clearInterval(slide);
+			$('#draw-btn').removeClass('spin').addClass('draw btnPrimary').val('Draw');
+
+			$('#draw-btn').click(draw);
+
+			clearInterval(spin);
 
 		}
-
-		//draw button and submit the form for queueing
-		$('#draw-btn').click(draw);
 
 		// restarts and refresh the page
 		$('#restart').click(function(e){
@@ -75,7 +140,7 @@
 	//function that draws the next queue
 	function draw(){
 
-		clearInterval(slide);// to be called when you want to stop the slide
+		clearInterval(spin);// to be called when you want to stop the slide
 
 		team_id = $('.picked img').attr('team_id');
 

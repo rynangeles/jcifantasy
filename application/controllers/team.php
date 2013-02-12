@@ -268,10 +268,11 @@
 
             $data = array();
             $data['page_id']            = 'team-drawlot'; // <body id="$page_id">
-            $data['javascripts']        = array('ajaxupload'); // javascripts to load
+            $data['javascripts']        = array(); // javascripts to load
             $data['stylesheets']        = array('team');  // stylesheets to load
             $data['content']            = 'admin/team/draw_lot'; // view to load
             $data['teams']              = $this->get_unqueued_teams();  //return teams that doesnt have queue yet
+            $data['turns']              = $this->get_queued_teams();  //return teams that has queue value
             $data['queue']              = $this->get_next_queue(); //returns the next queue
 
             if($this->input->post('submit')){
@@ -309,6 +310,16 @@
                 return $this->team_model->all_unqueued_teams();
 
             }
+        }
+
+        private function get_queued_teams(){
+
+            if($this->team_model->all_queued_teams()){
+
+                return $this->team_model->all_queued_teams();
+
+            }
+
         }
 
         private function upload($id){

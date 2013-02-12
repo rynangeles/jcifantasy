@@ -46,6 +46,7 @@
                 $config['maintain_ratio']     = TRUE;
                 $config['width']              = 450;
                 $config['height']             = 400;
+                $config['master_dim']         = 'height';
 
                 $this->load->library('image_lib', $config);
                 
@@ -62,11 +63,11 @@
                 /*====================
                     MAIN IMAGE THUMB 
                 ======================*/
-                $config['source_image']       = $image_data['full_path'];
+                $config['source_image']       = $this->upload_path . '/large-' . $image_data['file_name'];
                 $config['new_image']          = $this->upload_path . '/thumb/thumb-' . $image_data['file_name'];
-                $config['maintain_ratio']     = TRUE;
                 $config['width']              = 150;
-                $config['height']             = 100;
+                $config['height']             = 150;
+                $config['master_dim']         = 'height';
 
                 $this->image_lib->initialize($config);
 
@@ -152,6 +153,30 @@
 			return isset($last['id']) ? $last['id'] : 0;
 
 		}
+
+        public function all_queued_teams(){
+
+            $this->db->select('*');
+            $this->db->from('team');
+            $this->db->join('team_queue', 'team_queue.team_id = team.id', 'left');
+            $this->db->where(array('team.active'=>1, 'team_queue.queue !='=>0));
+            $this->db->order_by("team_queue.queue", "asc"); 
+
+            $query = $this->db->get();
+
+            if($query->num_rows() > 0){
+            
+                foreach($query->result() as $row){
+            
+                    $records[] = $row;
+            
+                }
+            
+                return $records;
+            
+            }
+
+        }
 
         public function all_unqueued_teams(){
 

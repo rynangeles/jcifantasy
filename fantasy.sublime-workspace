@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-weight"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"re",
+				"removeClass"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"suc",
+				"successful"
+			],
+			[
+				"update",
+				"update_record"
+			],
+			[
+				"qu",
+				"queue"
+			],
+			[
+				"team",
+				"team_model"
+			],
+			[
+				"dra",
+				"draw_lot"
+			],
+			[
+				"cs",
+				"csv_error"
+			],
+			[
+				"success",
+				"success_message"
+			],
+			[
 				"inacti",
 				"inactive_message"
 			],
@@ -36,16 +88,8 @@
 				"is_deleted"
 			],
 			[
-				"success",
-				"successful"
-			],
-			[
 				"tea",
 				"team_model"
-			],
-			[
-				"team",
-				"team_logo"
 			],
 			[
 				"var",
@@ -66,10 +110,6 @@
 			[
 				"de",
 				"defaults"
-			],
-			[
-				"text",
-				"text-align"
 			],
 			[
 				"funct",
@@ -122,14 +162,6 @@
 			[
 				"line",
 				"line-height"
-			],
-			[
-				"font",
-				"font-size"
-			],
-			[
-				"margin",
-				"margin"
 			],
 			[
 				"tex",
@@ -196,10 +228,6 @@
 				"display"
 			],
 			[
-				"marg",
-				"margin"
-			],
-			[
 				"u",
 				"uppercase"
 			],
@@ -235,87 +263,7 @@
 			"file": "application/helpers/my_functions_helper.php",
 			"settings":
 			{
-				"buffer_size": 1438,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/core/MY_Model.php",
-			"settings":
-			{
-				"buffer_size": 2680,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/core/MY_Controller.php",
-			"settings":
-			{
-				"buffer_size": 540,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/models/user_model.php",
-			"settings":
-			{
-				"buffer_size": 818,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/controllers/admin.php",
-			"settings":
-			{
-				"buffer_size": 1038,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/controllers/user.php",
-			"settings":
-			{
-				"buffer_size": 4129,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/views/admin/user/edit.php",
-			"settings":
-			{
-				"buffer_size": 3232,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/views/admin/user/create.php",
-			"settings":
-			{
-				"buffer_size": 3146,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/views/admin/user/user.php",
-			"settings":
-			{
-				"buffer_size": 1988,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "stylesheets/sass/global.scss",
-			"settings":
-			{
-				"buffer_size": 7580,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "stylesheets/sass/user.scss",
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 1726,
 				"line_ending": "Unix"
 			}
 		},
@@ -323,23 +271,31 @@
 			"file": "application/controllers/team.php",
 			"settings":
 			{
-				"buffer_size": 11085,
+				"buffer_size": 12946,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "application/controllers/login.php",
+			"file": "application/views/admin/team/draw_lot.php",
 			"settings":
 			{
-				"buffer_size": 3062,
+				"buffer_size": 3255,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "application/views/frontend/login.php",
+			"file": "stylesheets/sass/team.scss",
 			"settings":
 			{
-				"buffer_size": 1348,
+				"buffer_size": 2561,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/team_model.php",
+			"settings":
+			{
+				"buffer_size": 5972,
 				"line_ending": "Unix"
 			}
 		}
@@ -372,25 +328,41 @@
 	},
 	"file_history":
 	[
+		"/var/www/fantasy/jcifantasy/application/views/admin/home.php",
+		"/var/www/fantasy/jcifantasy/application/helpers/my_functions_helper.php",
+		"/var/www/fantasy/jcifantasy/application/views/includes/menu.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/login.php",
+		"/var/www/fantasy/jcifantasy/application/models/player_model.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/player.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/player/player.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/user/user.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/team/team.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/upload_csv.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/upload.php",
+		"/var/www/fantasy/jcifantasy/stylesheets/sass/player.scss",
+		"/var/www/fantasy/jcifantasy/application/core/MY_Model.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/user.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/admin.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/team.php",
+		"/var/www/fantasy/jcifantasy/application/models/user_model.php",
+		"/var/www/fantasy/jcifantasy/application/models/player_model",
+		"/var/www/fantasy/jcifantasy/application/config/mimes.php",
+		"/var/www/fantasy/jcifantasy/application/core/MY_Controller.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/user/edit.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/user/create.php",
+		"/var/www/fantasy/jcifantasy/stylesheets/sass/global.scss",
+		"/var/www/fantasy/jcifantasy/stylesheets/sass/user.scss",
+		"/var/www/fantasy/jcifantasy/application/views/frontend/login.php",
 		"/var/www/fantasy/jcifantasy/application/views/admin/team/create.php",
 		"/var/www/fantasy/jcifantasy/application/models/team_model.php",
-		"/var/www/fantasy/jcifantasy/application/views/admin/home.php",
 		"/var/www/fantasy/jcifantasy/stylesheets/sass/admin.scss",
-		"/var/www/fantasy/jcifantasy/application/controllers/team.php",
 		"/var/www/fantasy/jcifantasy/stylesheets/sass/team.scss",
-		"/var/www/fantasy/jcifantasy/application/views/admin/team/team.php",
-		"/var/www/fantasy/jcifantasy/application/controllers/admin.php",
-		"/var/www/fantasy/jcifantasy/application/core/MY_Model.php",
-		"/var/www/fantasy/jcifantasy/application/views/includes/menu.php",
 		"/var/www/fantasy/jcifantasy/stylesheets/sass/login.scss",
 		"/var/www/fantasy/jcifantasy/application/config/autoload.php",
 		"/var/www/fantasy/jcifantasy/application/views/includes/header.php",
 		"/var/www/fantasy/jcifantasy/stylesheets/login.css",
 		"/var/www/fantasy/jcifantasy/application/config/config.php",
-		"/var/www/fantasy/jcifantasy/application/controllers/login.php",
-		"/var/www/fantasy/jcifantasy/application/views/frontend/login.php",
 		"/var/www/fantasy/jcifantasy/application/controllers/logout.php",
-		"/var/www/fantasy/jcifantasy/application/views/admin/user/user.php",
 		"/var/www/fantasy/jcifantasy/application/views/includes/javascripts.php",
 		"/var/www/fantasy/jcifantasy/application/config/routes.php",
 		"/var/www/fantasy/jcifantasy/application/views/includes/base.php",
@@ -426,6 +398,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"FFFFFF",
+			"team",
+			"h3",
+			"turn",
+			"$i",
+			"update_record",
+			"0",
+			"user_model",
+			"team",
+			"csv_error",
+			"$key",
+			"$",
+			"key",
 			"upload_temp",
 			"Coach ",
 			"email",
@@ -513,7 +498,7 @@
 	"groups":
 	[
 		{
-			"selected": 12,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -521,15 +506,15 @@
 					"file": "application/helpers/my_functions_helper.php",
 					"settings":
 					{
-						"buffer_size": 1438,
+						"buffer_size": 1726,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1103,
-								1103
+								813,
+								813
 							]
 						],
 						"settings":
@@ -538,246 +523,80 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 510.0,
+						"translation.y": 408.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "application/core/MY_Model.php",
+					"file": "application/controllers/team.php",
 					"settings":
 					{
-						"buffer_size": 2680,
+						"buffer_size": 12946,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								375,
-								375
+								11854,
+								11854
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 6,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4993.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "application/core/MY_Controller.php",
+					"file": "application/views/admin/team/draw_lot.php",
 					"settings":
 					{
-						"buffer_size": 540,
+						"buffer_size": 3255,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								122,
-								122
+								459,
+								459
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 179.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "application/models/user_model.php",
+					"file": "stylesheets/sass/team.scss",
 					"settings":
 					{
-						"buffer_size": 818,
+						"buffer_size": 2561,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								147,
-								147
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 51.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "application/controllers/admin.php",
-					"settings":
-					{
-						"buffer_size": 1038,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								148,
-								148
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "application/controllers/user.php",
-					"settings":
-					{
-						"buffer_size": 4129,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								414,
-								414
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 20.0,
-						"translation.y": 1479.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "application/views/admin/user/edit.php",
-					"settings":
-					{
-						"buffer_size": 3232,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1753,
-								1753
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 561.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "application/views/admin/user/create.php",
-					"settings":
-					{
-						"buffer_size": 3146,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2410,
-								2410
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 918.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "application/views/admin/user/user.php",
-					"settings":
-					{
-						"buffer_size": 1988,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								675,
-								675
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "stylesheets/sass/global.scss",
-					"settings":
-					{
-						"buffer_size": 7580,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7272,
-								7272
+								2135,
+								2135
 							]
 						],
 						"settings":
@@ -786,79 +605,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5137.0,
+						"translation.y": 2014.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "stylesheets/sass/user.scss",
+					"buffer": 4,
+					"file": "application/models/team_model.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 5972,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "application/controllers/team.php",
-					"settings":
-					{
-						"buffer_size": 11085,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2384,
-								2384
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 84.0,
-						"translation.y": 816.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "application/controllers/login.php",
-					"settings":
-					{
-						"buffer_size": 3062,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2818,
-								2818
+								4727,
+								4727
 							]
 						],
 						"settings":
@@ -868,34 +633,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1224.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "application/views/frontend/login.php",
-					"settings":
-					{
-						"buffer_size": 1348,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								991,
-								991
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1734.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
