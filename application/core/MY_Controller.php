@@ -2,7 +2,7 @@
 
 	class My_controller extends CI_Controller{
 
-        var $user_type = '';
+        var $user_type;
 
 		function __construct(){
 

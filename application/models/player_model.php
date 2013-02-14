@@ -8,11 +8,25 @@
 		var $primary_key 	= 'id';
 
 
-		public function get_all_active(){
+		public function get_all_active($type){
 
-			$this->db->where('active', 1);
+			if($type == 1){
 
-			$query = $this->db->get($this->table);
+				$this->db->where('active', 1);
+
+				$query = $this->db->get($this->table);
+
+			}else{
+
+				$this->db->select('*');
+	            $this->db->from('team_players');
+	            $this->db->join('player', 'team_players.player_id = player.id', 'left');
+	            $this->db->where(array('player.active'=>1));
+
+	            $query = $this->db->get();
+
+			}
+			
 
 			if($query->num_rows() > 0){
 

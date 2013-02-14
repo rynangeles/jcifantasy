@@ -6,12 +6,11 @@
 
             parent::__construct();
 
-            if($this->user_type != 1){
+            // if($this->user_type != 1){
 
-                redirect('admin');
-                
+            //     redirect('admin');
 
-            }
+            // }
 
             $this->load->library('form_validation');
 
@@ -25,7 +24,8 @@
             $data['page_id']        = 'player'; // <body id="$page_id">
             $data['javascripts']    = array(); // javascripts to load
             $data['stylesheets']    = array('player');  // stylesheets to load
-            $data['players']        = $this->get_players();
+            $data['players']        = $this->get_players($this->user_type);
+            $data['user_type']      = $this->user_type;
 
             $success_message        = $this->session->flashdata('success_message');
 
@@ -100,11 +100,11 @@
 
         }
 
-		private function get_players(){
+		private function get_players($type){
 
-            if($this->player_model->get_all_active()){
+            if($this->player_model->get_all_active($type)){
 
-                return $this->player_model->get_all_active();
+                return $this->player_model->get_all_active($type);
 
             }
             

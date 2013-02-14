@@ -1,7 +1,7 @@
 <footer>
     &copy; Copyright <?php echo date("Y"); ?> | Designed and developed by RSolutions Inc.
 </footer>
-<script type="text/javascript" src="<?php echo base_url();?>javascripts/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>javascripts/jquery-1.9.0.js"></script>
 <?php if(isset($javascripts)): ?>
 <?php foreach ($javascripts as $javascript): ?>
 <script type="text/javascript" src="<?php echo base_url();?>javascripts/<?php echo $javascript; ?>.js"></script>

@@ -7,8 +7,8 @@
 			<?php echo form_submit(array('name'=>'submit', 'value'=>'Search', 'class'=>'searchButton'));?>
 			<?php echo form_close(); ?>
 		</div>
-		<?php echo anchor('upload_csv', 'Import Players', array('class'=>'btn btnPrimary btnCreate')); ?>
-		<?php echo anchor('player/create', 'Create Player', array('class'=>'btn btnPrimary btnCreate')); ?>
+		<?php echo $user_type == 1 ? anchor('upload_csv', 'Import Players', array('class'=>'btn btnPrimary btnCreate')) : ''; ?>
+		<?php echo $user_type == 1 ? anchor('player/create', 'Create Player', array('class'=>'btn btnPrimary btnCreate')) : ''; ?>
 	</div>
 
 	<?php if(isset($success_message)): ?>
@@ -26,7 +26,10 @@
 				<th>Weight</th>
 				<th>Born</th>
 				<th>Experience (Yrs.)</th>
+				<th>Status</th>
+				<?php if($user_type == 1) : ?>
 				<th>Operation</th>
+				<?php endif; ?>
 			</tr>
 		</thead>
 		<tbody>
@@ -40,11 +43,14 @@
 				<td><?php echo $player->weight; ?> kg</td>
 				<td><?php echo date('d M Y',strtotime($player->born)); ?></td>
 				<td><?php echo $player->experience; ?></td>
+				<td><?php echo get_status($player->active); ?></td>
+				<?php if($user_type == 1) : ?>
 				<td>	
 					<?php echo anchor('player/view/' . $player->id, 'View'); ?> |
 					<?php echo anchor('player/edit/' . $player->id, 'Edit'); ?> |
 					<?php echo anchor('player/delete/' . $player->id, 'Delete',array('class'=>'del')); ?>
 				</td>
+				<?php endif; ?>
 			</tr>
 			<?php endforeach; endif; ?>
 

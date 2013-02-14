@@ -41,7 +41,7 @@
 			$user_menu = array(
 					1=>array(
 						'user'=>'user','team'=>'team','player'=>'player','team/draw_lot'=>'draw lots'),
-					2=>array('player'=>'player','draft'=>'draft')
+					2=>array('player'=>'player','drafting'=>'draft')
 				);
 
 			return $user_menu[$user_type];
