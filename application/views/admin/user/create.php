@@ -87,27 +87,6 @@
 			window.location.href = "<?php echo base_url().'user'; ?>";
 		});
 
-		// var thumb = $('#thumb');	
-
-		// new AjaxUpload('team_logo', {
-		// 	action: $('#logo-temp-upload').attr('action'),
-		// 	name: 'image',
-		// 	onSubmit: function(file, extension) {
-
-		// 		$('.imageWrap .image').addClass('loading');
-		// 	},
-		// 	onComplete: function(file, response) {
-
-		// 		thumb.load(function(){
-		// 			$('.imageWrap .image').removeClass('loading');
-		// 			thumb.unbind();
-		// 		});
-		// 		thumb.attr('src', response);
-
-		// 	}
-
-		// });
-
 	});
 
 

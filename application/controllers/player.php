@@ -2,6 +2,9 @@
 
 	class Player extends My_controller{
 
+        var $manager    = 0;
+        var $team       = 0;
+
         function __construct(){
 
             parent::__construct();
@@ -12,9 +15,20 @@
 
             // }
 
+            $this->manager  = $this->session->userdata('user_id');
+
             $this->load->library('form_validation');
 
+            $this->load->model('team_model');
             $this->load->model('player_model');
+
+            if($this->team($this->manager)){
+
+                $team = $this->team($this->manager);
+
+                $this->team = $team->id;
+
+            }
 
         }
 
@@ -24,8 +38,20 @@
             $data['page_id']        = 'player'; // <body id="$page_id">
             $data['javascripts']    = array(); // javascripts to load
             $data['stylesheets']    = array('player');  // stylesheets to load
-            $data['players']        = $this->get_players($this->user_type);
+
+            if($this->user_type == 1){
+
+                $data['players']        = $this->get_players();
+
+            }else{
+
+                $data['players']        = $this->team_players($this->team);
+
+            }
+
             $data['user_type']      = $this->user_type;
+
+            $data['players_option'] = $this->available_players();
 
             $success_message        = $this->session->flashdata('success_message');
 
@@ -100,14 +126,74 @@
 
         }
 
-		private function get_players($type){
+        public function add_to_team(){
 
-            if($this->player_model->get_all_active($type)){
+            if($this->input->post('submit')){
 
-                return $this->player_model->get_all_active($type);
+                $data = array(
+                            'team_id'      => $this->team,
+                            'player_id'    => $this->input->post('player')
+                        );
+                $this->player_model->table = 'team_players';
+                $inserted_id = $this->player_model->insert_record($data);
+
+                if($inserted_id){
+
+                    redirect('player');
+
+                }
+            }
+        }
+
+        private function team_players($id){
+
+            if($this->player_model->get_team_players($id)){
+
+                return $this->player_model->get_team_players($id);
+            }
+
+        }
+
+        private function team($id){
+
+            if($this->team_model->get_team_by_manager($id)){
+
+                return $this->team_model->get_team_by_manager($id);
+            }
+
+        }
+
+		private function get_players(){
+
+            if($this->player_model->get_all_active()){
+
+                return $this->player_model->get_all_active();
 
             }
             
+        }
+
+        private function available_players(){
+
+            $players_raw = '';
+            $players = array('0'=>'Select');
+
+            if($this->player_model->get_available_players()){
+
+                $players_raw = $this->player_model->get_available_players();
+            }
+
+            if($players_raw){
+
+                foreach ($players_raw as $player) {
+
+                    $players[$player->id] = ucfirst($player->first_name) . " " . ucfirst($player->last_name);
+                }
+
+                return $players;
+                
+            }
+
         }
 
 	}

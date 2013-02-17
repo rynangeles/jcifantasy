@@ -1,14 +1,14 @@
 <div class="content clearfix">
 	<!-- <h1>Drafting</h1> -->
 	<div id="team" class="playerWrap">
-		<h2><?php //echo $team->team_name; ?></h2>
+		<h2><?php echo $team->team_name; ?></h2>
 		<div class="teamWrap">
 			<div class="teamDetail">
 				<span class="imageWrap">
-					<img width="200" height="150" src="<?php echo base_url() . 'uploads/team/'; ?>" class="thumb"/>
+					<img width="200" height="150" src="<?php echo base_url() . 'uploads/team/' . $team->team_logo; ?>" class="thumb"/>
 				</span>
-				<h4><span class="label">Head Coach:</span> <?php //echo ucfirst($team->coach_first_name) . ' ' . ucfirst($team->coach_last_name); ?></h4>
-				<h4><span class="label">Manager :</span> <?php //echo get_manager_name($team->manager_id); ?></h4>
+				<h4><span class="label">Head Coach:</span> <?php echo ucfirst($team->coach_first_name) . ' ' . ucfirst($team->coach_last_name); ?></h4>
+				<h4><span class="label">Manager :</span> <?php echo get_manager_name($team->manager_id); ?></h4>
 			</div>
 			<div class="formWrap">
 				<h4>Player details</h4>
@@ -21,25 +21,25 @@
 						<span class="label">Position : </span> 
 						<span class="value"></span> 
 					</li>
-					<li id="player_experience">
-						<span class="label">Experience : </span> 
-						<span class="value"></span> yrs.
+					<li id="player_mobile">
+						<span class="label">Mobile : </span> 
+						<span class="value"></span>
 					</li>
 					<li id="player_born">
 						<span class="label">Born : </span> 
 						<span class="value"></span> 
 					</li>
-					<li id="player_height">
-						<span class="label">Height : </span> 
-						<span class="value"></span> cm.
+					<li id="player_email">
+						<span class="label">Email : </span> 
+						<span class="value"></span>
 					</li>
-					<li id="player_weight">
-						<span class="label">Weight : </span> 
-						<span class="value"></span> kg.
+					<li id="player_lyr">
+						<span class="label">Last Year Rank : </span> 
+						<span class="value"></span>
 					</li>
 
 					<li class="form">
-						<?php echo form_open('',array('class' => 'draftForm', 'id' => 'draft-form'),array('player_id' => '', 'team_id' => '$team_id')); ?>
+						<?php echo form_open('',array('class' => 'draftForm', 'id' => 'draft-form'),array('player_id' => '', 'team_id' => $team->id)); ?>
 						<div class="actionWrap">
 							<?php echo form_reset(array('name'=>'reset', 'value'=>'Clear', 'class'=>'btn')); ?>
 							<?php echo form_submit(array('class'=>'btn','id'=>'draft-btn','name'=>'pass', 'value'=>'Pass'));?>
@@ -54,22 +54,12 @@
 		<h2>My Players</h2>
 		<ul>
 			<li class="droppable"></li>
+			<?php if(isset($team_players)) : foreach ($team_players as $team_player) : ?>
 			<li>
-				<span class="position">PG</span> 
-				<span class="name">Mark Allan Meriales</span> 
+				<span class="position"><?php echo readable_position($team_player->position);?></span> 
+				<span class="name"><?php echo ucfirst($team_player->first_name) . ' ' . ucfirst($team_player->last_name); ?></span> 
 			</li>
-			<li>
-				<span class="position">SG</span> 
-				<span class="name">Adrian Cruz</span> 
-			</li>
-			<li>
-				<span class="position">SF</span> 
-				<span class="name">Ryan Angeles</span> 
-			</li>
-			<li>
-				<span class="position">PF</span> 
-				<span class="name">Jan Eric Eusebio</span> 
-			</li>
+			<?php endforeach; endif; ?>
 		</ul>
 
 	</div>
@@ -81,18 +71,13 @@
 		    <input type="reset" id="clear-searh"  class="btn" value="Clear" />
 	    </div>
 		<ul id="player-list">
-			<li player='{ "player_id":5,"position":5,"name":"Lexter Acosta","exp":3,"weight":100,"height":100,"born":"15 Oct 1986"}' position_id="5"> 
-				<span class="position">C</span> 
-				<span class="name">Lexter Acosta</span> 
+
+			<?php if(isset($all_players)) : foreach ($all_players as $all_player) : ?>
+			<li  player='{ "player_id":<?php echo $all_player->id ?>,"position":"<?php echo readable_position($all_player->position) ?>","name":"<?php echo ucfirst($all_player->first_name) . ' ' . ucfirst($all_player->last_name); ?>","mobile":"<?php echo $all_player->mobile ?>","email":"<?php echo $all_player->email ?>","lyr":"<?php echo $all_player->last_year_rank ?>","born":"<?php echo date('d M Y',strtotime($all_player->born)); ?>"}'>
+				<span class="position"><?php echo readable_position($all_player->position);?></span> 
+				<span class="name"><?php echo ucfirst($all_player->first_name) . ' ' . ucfirst($all_player->last_name); ?></span> 
 			</li>
-			<li player='{ "player_id":6,"position":2,"name":"Chester Diokno","exp":3,"weight":100,"height":100,"born":"15 Oct 1986"}' position_id="1"> 
-				<span class="position">PG</span>
-				<span class="name">Chester Diokno</span> 
-				</li>
-			<li player='{ "player_id":7,"position":2,"name":"Jonathan Jacinto","exp":3,"weight":100,"height":100,"born":"15 Oct 1986"}' position_id="2"> 
-				<span class="position">SG</span>
-				<span class="name">Jonathan Jacinto</span> 
-			</li>
+			<?php endforeach; endif; ?>
 		</ul>
 	</div>
 </div>
@@ -197,12 +182,12 @@
 
 	            $('#player_name .value').text(player_attr.name);
 	            $('#player_postion .value').text(player_attr.position);
-	            $('#player_experience .value').text(player_attr.exp);
+	            $('#player_mobile .value').text(player_attr.mobile);
 	            $('#player_born .value').text(player_attr.born);
-	            $('#player_height .value').text(player_attr.height);
-	            $('#player_weight .value').text(player_attr.weight);
+	            $('#player_email .value').text(player_attr.email);
+	            $('#player_lyr .value').text(player_attr.lyr);
 	            $('input[name="player_id"]').val(player_attr.player_id);
-	            $('input[name="pass"]').val('Draft').addClass('btnPrimary');
+	            $('input[name="pass"]').val('Draft').attr('name', 'submit').addClass('btnPrimary');
 
 	            html = $('<div />');
 

@@ -47,6 +47,10 @@
 				text-align: center;
 				border-bottom: 1px dotted #CCCCCC;
 				padding:5px 0;
+
+				img{
+					outline: 5px solid #FFFFFF;
+				}
 			}
 
 			h4{
@@ -90,7 +94,7 @@
 
 				.label{
 					display: inline-block;
-					width: 70px;
+					width: 90px;
 				}
 
 				.value{
@@ -259,6 +263,28 @@
 	}
 }
 
+.enterWrap{
+
+	margin-top:20px;
+	text-align:center;
+
+	.btn{
+		color: #333333;
+		border:1px solid #333333;
+		padding: 15px 20px;
+		font-size: 1.5em;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+
+	.btnPrimary{
+
+		color: #FFFFFF;
+		
+	}
+}
+
 
 /*=========================================
 	jquery related Styles
@@ -268,4 +294,20 @@
 
 	box-shadow: -2px 0 5px #999999;
     opacity: 0.6;
+}
+
+.message{
+	
+	padding:10px;
+
+	p{
+		font-size: 16px;
+	}
+
+}
+.ui-icon{
+
+	float:left;
+	margin-right:10px;
+
 }

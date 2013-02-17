@@ -126,7 +126,7 @@
 			$this->db->select('user.id as manager_id, user.first_name as manager_firstname, user.last_name as manager_lastname');
             $this->db->from('user');
             $this->db->join('team', 'team.manager_id = user.id', 'left');
-            $this->db->where(array('team.manager_id'=>null,'user.active'=>1));
+            $this->db->where(array('team.manager_id'=>null,'user.active'=>1,'user.type'=>2));
 
             $query = $this->db->get();
 
@@ -213,6 +213,30 @@
             }
 
             return FALSE;
+        }
+
+        public function get_team_by_manager($manager_id){
+
+            $this->db->select('team.*, user.id as user_id, user.first_name, user.last_name');
+            $this->db->from('team');
+            $this->db->join('user', 'user.id = team.manager_id', 'left');
+            $this->db->where(array('team.active'=>1, 'team.manager_id'=>$manager_id));
+
+            $query = $this->db->get();
+
+            if($query->num_rows() == 1){
+
+                foreach($query->result() as $row){
+            
+                    $records[] = $row;
+            
+                }
+
+                return array_shift($records);
+            }
+
+            return FALSE;
+
         }
 
 	}

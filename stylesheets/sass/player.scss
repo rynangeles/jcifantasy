@@ -37,3 +37,31 @@
 		
 	}
 }
+
+#add-to-team-wrap{
+
+	border-top: 1px dotted #FFFFFF;
+	border-bottom: 1px dotted #FFFFFF;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	text-align: right;
+	display: none;
+	vertical-align:middle;
+
+	label{
+		display: inline-block;
+		*display: inline;
+		zoom:1;
+		margin-right: 5px;
+	}
+
+	select{
+
+		vertical-align:middle;
+		
+	}
+}
+
+.btnAdd{
+	float: right;
+}

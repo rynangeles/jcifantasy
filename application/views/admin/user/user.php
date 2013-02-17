@@ -40,7 +40,7 @@
 				<td><?php echo date('d M Y g:i a',strtotime($user->created)); ?></td>
 				<td><?php echo date('d M Y g:i a',strtotime($user->last_login)); ?></td>
 				<td>
-					<?php echo anchor('user/view/' . $user->id, 'View'); ?> |
+					<?php //echo anchor('user/view/' . $user->id, 'View'); ?> <!-- | -->
 					<?php echo anchor('user/edit/' . $user->id, 'Edit'); ?> |
 					<?php echo anchor('user/delete/' . $user->id, 'Delete',array('class'=>'del')); ?>
 				</td>

@@ -1,3 +1,4 @@
+<?php isset($player) ? $player_selected = $player : $player_selected = 0; ?>
 <div class="content">
 	<div class="operation clearfix">
 		<div class="searchBox">
@@ -8,24 +9,37 @@
 			<?php echo form_close(); ?>
 		</div>
 		<?php echo $user_type == 1 ? anchor('upload_csv', 'Import Players', array('class'=>'btn btnPrimary btnCreate')) : ''; ?>
-		<?php echo $user_type == 1 ? anchor('player/create', 'Create Player', array('class'=>'btn btnPrimary btnCreate')) : ''; ?>
+		<?php //echo $user_type == 1 ? anchor('player/create', 'Create Player', array('class'=>'btn btnPrimary btnCreate')) : ''; ?>
+		<?php echo $user_type == 2 ? anchor('#', 'Add Player', array('class'=>'btn btnPrimary btnAdd', 'id'=>'add-to-team')) : ''; ?>
 	</div>
-
 	<?php if(isset($success_message)): ?>
 		<div class="success message">
 			<?php echo $success_message; ?>
 		</div>
 	<?php endif; ?>
+
+	<div id="add-to-team-wrap">
+		<?php echo form_open('player/add_to_team'); ?>
+		<?php 
+			echo form_label('player', 'player');
+			echo isset($players_option) ? form_dropdown('player', $players_option, $player_selected) : form_dropdown('manager',array(0=>'Select'), 0); 
+			echo form_error('player');
+
+			echo form_submit(array('name'=>'submit', 'value'=>'Submit', 'class'=>'btn btnPrimary'));
+		?>
+		<?php echo form_close(); ?>
+	</div>
+
 	<table cellpadding="0" cellspacing="0" border="0">
 		<thead>
 			<tr>
-				<th>First Name</th>
+				<th style="width:100px;">First Name</th>
 				<th>Last Name</th>
-				<th>Position</th>
-				<th>Height</th>
-				<th>Weight</th>
+				<th style="width:100px;">Member Type</th>
+				<th>Email</th>
+				<th style="width:80px;">Mobile</th>
+				<th style="width:90px;">Suncell</th>
 				<th>Born</th>
-				<th>Experience (Yrs.)</th>
 				<th>Status</th>
 				<?php if($user_type == 1) : ?>
 				<th>Operation</th>
@@ -38,11 +52,11 @@
 			<tr>
 				<td><?php echo $player->first_name; ?></td>
 				<td><?php echo $player->last_name; ?></td>
-				<td><?php echo readable_position($player->position); ?></td>
-				<td><?php echo $player->height; ?> cm</td>
-				<td><?php echo $player->weight; ?> kg</td>
+				<td><?php echo $player->member_type; ?></td>
+				<td><p style="width:170px; word-wrap:break-word;"><?php echo $player->email; ?></p></td>
+				<td><?php echo $player->mobile; ?></td>
+				<td><?php echo $player->suncell; ?></td>
 				<td><?php echo date('d M Y',strtotime($player->born)); ?></td>
-				<td><?php echo $player->experience; ?></td>
 				<td><?php echo get_status($player->active); ?></td>
 				<?php if($user_type == 1) : ?>
 				<td>	
@@ -68,6 +82,46 @@
 			window.location.href = "<?php echo base_url().'player'; ?>";
 		});
 
+		$('#add-to-team').click(function(e){
+
+			e.preventDefault();
+			$('#add-to-team-wrap').slideToggle(200, change_btn);
+
+		});
+
+		$('#add-to-team-wrap form input[name="submit"]').click(function(e){
+
+
+			if($('#add-to-team-wrap form select').val() == 0){
+				
+				//e.preventDefault();
+				$('#add-to-team-wrap form .error').remove();
+				$('#add-to-team-wrap form').append('<span class="error">Please choose a player.</span>');
+
+				return false;
+
+			}else{
+
+				$('#add-to-team-wrap form').submit();
+
+			}
+
+		});
+
 	});
+
+	function change_btn(){
+
+		if($('#add-to-team').hasClass('btnPrimary')){
+
+			$('#add-to-team').removeClass('btnPrimary').text('Close').css('color','#333333');
+
+		}else{
+
+			$('#add-to-team').addClass('btnPrimary').text('Add Player').css('color','#FFFFFF');
+
+		}
+
+	}
 
 </script>

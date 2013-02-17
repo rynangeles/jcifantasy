@@ -1,0 +1,23 @@
+#change_password{
+	display:none;
+	border:1px solid #666666;
+	width: 365px;
+	padding: 10px 0; 
+	margin-left:40px;
+	margin-bottom: 10px;
+
+	legend{
+		padding: 0 5px;
+		margin-left: 10px;
+		color: #DDDDDD;
+	}
+
+	.error{
+		left:100%;
+	}
+
+	div{
+
+		padding: 5px 10px;
+	}
+}

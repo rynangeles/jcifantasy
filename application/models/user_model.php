@@ -25,7 +25,7 @@
 
 		public function get_all_active(){
 
-			$this->db->where('active', 1);
+			$this->db->where(array('active' => 1, 'deleted' => 0));
 
 			$query = $this->db->get($this->table);
 
@@ -38,6 +38,24 @@
             }
 
             return $records;
+
+            }
+
+		}
+
+		public function is_duplicate($value){
+
+			$this->db->where('username', $value);
+
+			$query = $this->db->get($this->table);
+
+			if($query->num_rows() > 0){
+
+                  return TRUE;
+
+            }else{
+
+            	return FALSE;
 
             }
 

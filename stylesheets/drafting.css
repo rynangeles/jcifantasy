@@ -31,6 +31,8 @@
     text-align: center;
     border-bottom: 1px dotted #cccccc;
     padding: 5px 0; }
+    #team .teamWrap .teamDetail .imageWrap img {
+      outline: 5px solid white; }
   #team .teamWrap .teamDetail h4 {
     color: #FFFFFF;
     font-size: 1.3em;
@@ -53,7 +55,7 @@
     padding: 5px 0; }
     #team .teamWrap .formWrap li .label {
       display: inline-block;
-      width: 70px; }
+      width: 90px; }
     #team .teamWrap .formWrap li .value {
       font-weight: bold; }
   #team .teamWrap .formWrap .form {
@@ -158,9 +160,32 @@
     #all-player #player-list li.drafted, #all-player #player-list li.drafting {
       display: none !important; }
 
+.enterWrap {
+  margin-top: 20px;
+  text-align: center; }
+  .enterWrap .btn {
+    color: #333333;
+    border: 1px solid #333333;
+    padding: 15px 20px;
+    font-size: 1.5em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+  .enterWrap .btnPrimary {
+    color: #FFFFFF; }
+
 /*=========================================
 	jquery related Styles
 =========================================*/
 .ui-draggable-dragging {
   box-shadow: -2px 0 5px #999999;
   opacity: 0.6; }
+
+.message {
+  padding: 10px; }
+  .message p {
+    font-size: 16px; }
+
+.ui-icon {
+  float: left;
+  margin-right: 10px; }

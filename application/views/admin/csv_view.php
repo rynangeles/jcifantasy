@@ -9,22 +9,32 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Position</th>
-				<th>Height</th>
-				<th>Weight</th>
+				<th>Member Type</th>
+				<th>Mobile</th>
 				<th>Born</th>
-				<th>Experience</th>
+				<th>Email</th>
 				<th>Active</th>
 			</tr>
 		</thead>
 		<tbody>
 
 			<?php if(isset($csv_data)) : foreach ($csv_data as $data) : ?>
-			<tr>
+			<!-- <tr>
 				<?php foreach ($data as $datum) : ?>
 
 					<td><?php echo $datum; ?></td>
 				
 				<?php endforeach; ?>
+			</tr> -->
+			<tr>
+				<td><?php echo $data['FIRSTNAME']; ?></td>
+				<td><?php echo $data['LASTNAME']; ?></td>
+				<td><?php echo $data['POSITION']; ?></td>
+				<td><?php echo $data['MEMBERTYPE']; ?></td>
+				<td><?php echo $data['MOBILE']; ?></td>
+				<td><?php echo $data['BORN']; ?></td>
+				<td><?php echo $data['EMAIL']; ?></td>
+				<td>1</td>
 			</tr>
 			<?php endforeach; endif; ?>
 

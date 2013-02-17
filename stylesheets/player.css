@@ -14,3 +14,22 @@
   text-shadow: 2px 2px #333333;
   margin-bottom: 20px;
   text-align: center; }
+
+#add-to-team-wrap {
+  border-top: 1px dotted white;
+  border-bottom: 1px dotted white;
+  padding: 5px 0;
+  margin-bottom: 10px;
+  text-align: right;
+  display: none;
+  vertical-align: middle; }
+  #add-to-team-wrap label {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin-right: 5px; }
+  #add-to-team-wrap select {
+    vertical-align: middle; }
+
+.btnAdd {
+  float: right; }

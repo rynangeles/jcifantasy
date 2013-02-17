@@ -81,11 +81,57 @@
 
 		function readable_position($position_id){
 
-			$position = array(1=>'PG',2=>'SG',3=>'SF',4=>'PF',5=>'C');
+			$position = array(0=>'NA',1=>'PG',2=>'SG',3=>'SF',4=>'PF',5=>'C');
 		
 			return $position[$position_id];
 		}
 	}
+
+	if( !function_exists('is_queue')){
+
+		function is_queue($manager_id){
+
+			$CI =& get_instance();
+
+			$CI->db->select('team.id as team_id, team.manager_id, team_queue.team_id as queue_team_id, team_queue.turn');
+            $CI->db->from('team');
+            $CI->db->join('team_queue', 'team_queue.team_id = team.id', 'left');
+			$CI->db->where('team.manager_id', $manager_id);
+
+			$query = $CI->db->get();
+
+			$record = '';
+			if($query->num_rows() == 1){
+
+                foreach($query->result() as $row){
+            
+                    $records[] = $row;
+            
+                }
+
+                $record = array_shift($records);
+
+            	if($record->turn == 1){
+
+	            	return TRUE;
+
+	            }else{
+
+	            	return FALSE;
+
+	            }
+
+            }else{
+
+            	return FALSE;
+
+            }
+            
+		}
+		
+	}
+
+
 
 	
 /* End of file My_function_helpers.php */

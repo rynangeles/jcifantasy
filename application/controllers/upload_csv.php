@@ -122,13 +122,16 @@ class Upload_csv extends My_controller {
                     $data[] = array(
                         'first_name' 	=> $line['FIRSTNAME'],
                         'last_name' 	=> $line['LASTNAME'],
+                        'nickname' 		=> $line['NICKNAME'],
+                        'member_type' 	=> $line['MEMBERTYPE'],
                         'born' 			=> $line['BORN'],
-                        'height' 		=> $line['HEIGHT'],
-                        'weight' 		=> $line['WEIGHT'],
+                        'last_year_rank'=> $line['LASTYEARRANK'],
+                        'mobile' 		=> $line['MOBILE'],
                         'created' 		=> date('Y-m-d H:i:s'),
                         'position' 		=> $line['POSITION'],
-                        'experience' 	=> $line['EXPERIENCE'],
-                        'active' 		=> $line['ACTIVE']
+                        'suncell' 		=> $line['SUNCELL'],
+                        'email' 		=> $line['EMAIL'],
+                        'active' 		=> 1
                     );
 
                 }

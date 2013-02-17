@@ -1,62 +1,99 @@
 <?php 
 	// if form submitted with errors 
 	// set select value for dropdown
-	isset($manager) ?  $manager_selected = $manager : $manager_selected = 0;
+	isset($type) ?  $type_selected = $type : $type_selected = 0;
 	isset($status) ?  $status_selected = $status : $status_selected = 1;
+
 ?>
 
 <div class="content">
 	<div class="formWrap clearfix">
 		<h2>Edit User</h2>
-		<?php echo form_open_multipart(); ?>
+		<?php echo form_open('user/edit/'.$default->id); ?>
 
 		<div class="inputGroup">
-			<?php echo form_label('Team Logo', 'team_logo'); ?>
-			<!-- <div class="imageWrap">
-				<div class="image">
-					<img id="thumb" style="width:100%;height:100%;" src="<?php echo base_url(); ?>images/bg_transparent.png">
-				</div>
-				<?php echo form_upload(array('name'=>'team_logo', 'id'=>'team_logo')); ?>
-			</div> -->
-			<?php echo form_upload(array('name'=>'team_logo', 'id'=>'team_logo')); ?>
-			<?php echo isset($upload_error) ? $upload_error : ' '; ?>
+			<?php 
+				echo form_label('Username', 'username');
+				echo form_input(array('name'=>'username', 'placeholder'=>'Username'),set_value('username', $default->username));
+				echo form_error('username');
+			?>
 		</div>
+		<div class="inputGroup">
+			<?php 
+				echo form_label('First Name', 'first_name');
+				echo form_input(array('name'=>'first_name', 'placeholder'=>'First Name'),set_value('first_name', $default->first_name));
+				echo form_error('first_name');
+			?>
+		</div>
+		<div class="inputGroup">
+			<?php 
+				echo form_label('Last Name', 'last_name');
+				echo form_input(array('name'=>'last_name', 'placeholder'=>'Last Name'),set_value('last_name', $default->last_name));
+				echo form_error('last_name');
+			?>
+		</div>
+		<div class="inputGroup">
+			<?php 
+				echo form_label('Email', 'email');
+				echo form_input(array('name'=>'email', 'placeholder'=>'Email'),set_value('email', $default->email));
+				echo form_error('email');
+			?>
+		</div>
+		<div class="inputGroup">
+			<?php 
+				echo form_label('User Type', 'usertype');
+				echo form_dropdown('usertype',array(0=>'Select',1=>'Admin',2=>'Team Manager'), $type_selected); 
+				echo form_error('usertype');
+			?>
+		</div>
+		<div class="inputGroup">
+			<?php 
+				echo form_label('Status', 'status');
+				echo form_dropdown('status',array(0=>'Inactive',1=>'Active'), $status_selected); 
+				echo form_error('status');
+			?>
+		</div>
+		<div class="inputGroup">
+			<?php 
 
-		<!--<?php echo form_hidden('logo_image_filename', ' '); ?>-->
-		<div class="inputGroup">
-			<?php 
-				echo form_label('Team Name', 'team_name');
-				echo form_input(array('name'=>'team_name', 'placeholder'=>'Team Name'),set_value('team_name',$default->team_name));
-				echo form_error('team_name');
-			?>
+				$data = array(
+				    'name'        => 'change_pass',
+				    'id'          => 'change_pass',
+				    'value'       => '1',
+				    'checked'     => FALSE
+			    );
+
+			    if(isset($change_pass)) { $data['checked'] = TRUE; }
+
+				echo form_checkbox($data);
+				echo form_label('Change Password ?', 'change_pass');
+
+				?>
 		</div>
-		<div class="inputGroup">
-			<?php 
-				echo form_label('Coach First Name', 'coach_first_name');
-				echo form_input(array('name'=>'coach_first_name', 'placeholder'=>'Coach First Name'),set_value('coach_first_name',$default->coach_first_name));
-				echo form_error('coach_first_name');
-			?>
-		</div>
-		<div class="inputGroup">
-			<?php 
-				echo form_label('Coach Last Name', 'coach_last_name');
-				echo form_input(array('name'=>'coach_last_name', 'placeholder'=>'Coach Last Name'),set_value('coach_last_name',$default->coach_last_name));
-				echo form_error('coach_last_name');
-			?>
-		</div>
-		<div class="inputGroup">
-			<?php 
-				echo form_label('Team Manager', 'manager');
-				echo isset($managers_option) ? form_dropdown('manager', $managers_option, $manager_selected) : form_dropdown('manager',array(0=>'Select'), 0); 
-				echo form_error('manager');
-			?>
-		</div>
-		<div class="inputGroup">
-			<?php 
-				echo form_label('Team Status', 'status');
-				echo form_dropdown('status', array(0 => 'Inactive', 1 => 'Active') , $status_selected); 
-			?>
-		</div>
+		<fieldset id="change_password">
+			<legend>Change Password</legend>
+			<div class="inputGroup">
+				<?php 
+					echo form_label('Old Password', 'old_password');
+					echo form_password(array('name'=>'old_password', 'placeholder'=>'Old Password'));
+					echo form_error('old_password');
+				?>
+			</div>
+			<div class="inputGroup">
+				<?php 
+					echo form_label('New Password', 'password');
+					echo form_password(array('name'=>'password', 'placeholder'=>'New Password'));
+					echo form_error('password');
+				?>
+			</div>
+			<div class="inputGroup">
+				<?php 
+					echo form_label('Confirm Password', 'confirm_password');
+					echo form_password(array('name'=>'confirm_password', 'placeholder'=>'Confirm Password'));
+					echo form_error('confirm_password');
+				?>
+			</div>
+		</fieldset>
 
 		<div class="inputGroup action">
 			<?php 
@@ -78,26 +115,29 @@
 			window.location.href = "<?php echo base_url().'user'; ?>";
 		});
 
-		// var thumb = $('#thumb');	
+		$('.del').click(function(e){
+			
+			var del = confirm('Are you sure you want to delete this item');
 
-		// new AjaxUpload('team_logo', {
-		// 	action: $('#logo-temp-upload').attr('action'),
-		// 	name: 'image',
-		// 	onSubmit: function(file, extension) {
+			if(!del){
 
-		// 		$('.imageWrap .image').addClass('loading');
-		// 	},
-		// 	onComplete: function(file, response) {
+				return false;
+				
+			}
 
-		// 		thumb.load(function(){
-		// 			$('.imageWrap .image').removeClass('loading');
-		// 			thumb.unbind();
-		// 		});
-		// 		thumb.attr('src', response);
+		});
 
-		// 	}
+		if($('#change_pass').is(':checked')){
 
-		// });
+			$('#change_password').show();
+
+		}
+
+		$('#change_pass').change(function(){
+
+			$('#change_password').slideToggle('100');
+		    
+		});
 
 	});
 

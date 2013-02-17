@@ -66,61 +66,62 @@
                 
                 }else{
 
-
                     $last_team_id   = $this->team_model->get_team_last_id();
 
                     $upload_logo    = $this->upload(($last_team_id+1));
+
 
                     $team_logo      = 'default.jpg';
                     $team_thumb     = 'default_thumb.jpg';
 
                     if(isset($upload_logo['status'])){
-
+                        
                         if($upload_logo['status'] == TRUE){
 
                             $team_logo  = 'large-' . $upload_logo['data']['file_name'];
                             $team_thumb = 'thumb-' . $upload_logo['data']['file_name'];
 
+                            $data = array(
+                                    'team_name'         => $this->input->post('team_name'),
+                                    'manager_id'        => $this->input->post('manager'),
+                                    'coach_first_name'  => $this->input->post('coach_first_name'),
+                                    'coach_last_name'   => $this->input->post('coach_last_name'),
+                                    'team_logo'         => $team_logo,
+                                    'team_logo_thumb'   => $team_thumb,
+                                    'created'           => date('Y-m-d H:i:s'),
+                                    'active'            => $this->input->post('status')
+                                );
+
+                            $inserted_id = $this->team_model->insert_record($data);
+
+                            if($inserted_id){
+                            
+                                $data = array(
+                                    'team_id' =>  $inserted_id
+                                );
+
+                                $this->team_model->table = 'team_queue';
+
+                                $this->team_model->insert_record($data);
+
+                            }
+
+                            $data['success'] = TRUE;
+
+                            $this->session->set_flashdata('success_message', 'Team saving successful.');
+
+                            redirect('team');
+
                         }else{
 
+                            $data['success']        = FALSE;
                             $data['manager']        = $this->input->post('manager');
                             $data['status']         =  $this->input->post('status');
                             $data['upload_error']   = $upload_logo['data'];
 
-                            return FALSE;
                         }
-                    }                    
 
-                    $data = array(
-                            'team_name'         => $this->input->post('team_name'),
-                            'manager_id'        => $this->input->post('manager'),
-                            'coach_first_name'  => $this->input->post('coach_first_name'),
-                            'coach_last_name'   => $this->input->post('coach_last_name'),
-                            'team_logo'         => $team_logo,
-                            'team_logo_thumb'   => $team_thumb,
-                            'created'           => date('Y-m-d H:i:s'),
-                            'active'            => $this->input->post('status')
-                        );
-
-                    $inserted_id = $this->team_model->insert_record($data);
-
-                    if($inserted_id){
-                    
-                        $data = array(
-                            'team_id' =>  $inserted_id
-                        );
-
-                        $this->team_model->table = 'team_queue';
-
-                        $this->team_model->insert_record($data);
-
-                    }
-
-                    $data['success'] = TRUE;
-
-                    $this->session->set_flashdata('success_message', 'Team saving successful.');
-
-                    redirect('team');
+                    }  
 
                 }
 
@@ -181,41 +182,43 @@
                     $team_thumb = $defaults->team_logo_thumb;
 
                     if(isset($upload_logo['status'])){
+                        
 
                         if($upload_logo['status'] == TRUE){
 
                             $team_logo  = 'large-' . $upload_logo['data']['file_name'];
                             $team_thumb = 'thumb-' . $upload_logo['data']['file_name'];
 
+                            $data = array(
+                                'team_name'         => $this->input->post('team_name'),
+                                'manager_id'        => $this->input->post('manager'),
+                                'coach_first_name'  => $this->input->post('coach_first_name'),
+                                'coach_last_name'   => $this->input->post('coach_last_name'),
+                                'team_logo'         => $team_logo,
+                                'team_logo_thumb'   => $team_thumb,
+                                'active'            => $this->input->post('status')
+                            );
+
+                            $updated_id = $this->team_model->update_record($id, $data);
+
+                            if($updated_id){
+                            
+                                $data['success'] = TRUE;
+
+                                $this->session->set_flashdata('success_message', 'Team update successful.');
+
+                                redirect('team');
+
+                            }
+
                         }else{
 
+                            $data['success']        = FALSE;
                             $data['manager']        = $this->input->post('manager');
-                            $data['status']         =  $this->input->post('status');
+                            $data['status']         = $this->input->post('status');
                             $data['upload_error']   = $upload_logo['data'];
 
-                            return FALSE;
                         }
-                    }
-
-                    $data = array(
-                            'team_name'         => $this->input->post('team_name'),
-                            'manager_id'        => $this->input->post('manager'),
-                            'coach_first_name'  => $this->input->post('coach_first_name'),
-                            'coach_last_name'   => $this->input->post('coach_last_name'),
-                            'team_logo'         => $team_logo,
-                            'team_logo_thumb'   => $team_thumb,
-                            'active'            => $this->input->post('status')
-                        );
-
-                    $updated_id = $this->team_model->update_record($id, $data);
-
-                    if($updated_id){
-                    
-                        $data['success'] = TRUE;
-
-                        $this->session->set_flashdata('success_message', 'Team update successful.');
-
-                        redirect('team');
 
                     }
 
@@ -286,9 +289,27 @@
 
                 if($updated_id){
 
-                    $this->session->set_flashdata('success_message', 'Draw lot successful');
+                    if($this->input->post('queue_id') == 1){
 
-                    redirect('team/draw_lot');
+                        $data = array('turn' =>  1);
+
+                        if($this->team_model->update_record($this->input->post('team_id'),$data)){
+
+
+                            $this->session->set_flashdata('success_message', 'Draw lot successful');
+
+                            redirect('team/draw_lot');
+
+                        }
+
+                    }else{
+
+
+                        $this->session->set_flashdata('success_message', 'Draw lot successful');
+
+                        redirect('team/draw_lot');
+
+                    }
                 }
             }
 

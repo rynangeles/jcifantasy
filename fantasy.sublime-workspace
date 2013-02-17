@@ -4,28 +4,76 @@
 		"selected_items":
 		[
 			[
-				"font",
-				"font-weight"
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"pla",
+				"players"
+			],
+			[
+				"margi",
+				"margin-right"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"btn",
+				"btnPrimary"
+			],
+			[
+				"form",
+				"form_close"
 			],
 			[
 				"text",
-				"text-decoration"
-			],
-			[
-				"fo",
-				"font-weight"
+				"text-align"
 			],
 			[
 				"marg",
+				"margin-top"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"pri",
+				"print_r"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"font-st",
+				"font-style"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"tex",
+				"text-align-last"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"margin",
 				"margin-bottom"
 			],
 			[
 				"re",
 				"removeClass"
-			],
-			[
-				"margin",
-				"margin-right"
 			],
 			[
 				"suc",
@@ -62,14 +110,6 @@
 			[
 				"pass",
 				"password"
-			],
-			[
-				"margi",
-				"margin-bottom"
-			],
-			[
-				"mar",
-				"margin"
 			],
 			[
 				"img_c",
@@ -164,10 +204,6 @@
 				"line-height"
 			],
 			[
-				"tex",
-				"text-align-last"
-			],
-			[
 				"back",
 				"background_color"
 			],
@@ -190,10 +226,6 @@
 			[
 				"clear",
 				"clear_cache"
-			],
-			[
-				"pri",
-				"private"
 			],
 			[
 				"log",
@@ -248,10 +280,6 @@
 				"block"
 			],
 			[
-				"for",
-				"foreach	foreach …"
-			],
-			[
 				"fot",
 				"footer	Tag"
 			]
@@ -263,7 +291,79 @@
 			"file": "application/helpers/my_functions_helper.php",
 			"settings":
 			{
-				"buffer_size": 1726,
+				"buffer_size": 2593,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/admin/player/player.php",
+			"settings":
+			{
+				"buffer_size": 3773,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ryanangeles/Desktop/jci_players.csv",
+			"settings":
+			{
+				"buffer_size": 38769,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "stylesheets/sass/player.scss",
+			"settings":
+			{
+				"buffer_size": 738,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/admin/team/create.php",
+			"settings":
+			{
+				"buffer_size": 3174,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "stylesheets/sass/global.scss",
+			"settings":
+			{
+				"buffer_size": 7580,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/player.php",
+			"settings":
+			{
+				"buffer_size": 6367,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/drafting.php",
+			"settings":
+			{
+				"buffer_size": 4925,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/config/config.php",
+			"settings":
+			{
+				"buffer_size": 12853,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/player_model.php",
+			"settings":
+			{
+				"buffer_size": 1562,
 				"line_ending": "Unix"
 			}
 		},
@@ -271,23 +371,7 @@
 			"file": "application/controllers/team.php",
 			"settings":
 			{
-				"buffer_size": 12946,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/views/admin/team/draw_lot.php",
-			"settings":
-			{
-				"buffer_size": 3255,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "stylesheets/sass/team.scss",
-			"settings":
-			{
-				"buffer_size": 2561,
+				"buffer_size": 13376,
 				"line_ending": "Unix"
 			}
 		},
@@ -295,7 +379,23 @@
 			"file": "application/models/team_model.php",
 			"settings":
 			{
-				"buffer_size": 5972,
+				"buffer_size": 6655,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/upload_csv.php",
+			"settings":
+			{
+				"buffer_size": 5387,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/admin/csv_view.php",
+			"settings":
+			{
+				"buffer_size": 1514,
 				"line_ending": "Unix"
 			}
 		}
@@ -328,42 +428,49 @@
 	},
 	"file_history":
 	[
+		"/var/www/fantasy/jcifantasy/stylesheets/sass/team.scss",
+		"/var/www/fantasy/jcifantasy/application/core/MY_Controller.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/drafting.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/team/queue.php",
+		"/home/ryanangeles/Dropbox/autocomplete_draggable/index.html",
+		"/var/www/fantasy/jcifantasy/application/controllers/team.php",
+		"/var/www/fantasy/jcifantasy/application/models/player_model.php",
+		"/var/www/fantasy/jcifantasy/application/models/team_model.php",
+		"/var/www/fantasy/jcifantasy/stylesheets/sass/drafting.scss",
+		"/var/www/fantasy/jcifantasy/application/core/MY_Model.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/user.php",
+		"/home/ryanangeles/adoc.py",
+		"/var/www/fantasy/jcifantasy/application/models/user_model.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/team/draw_lot.php",
 		"/var/www/fantasy/jcifantasy/application/views/admin/home.php",
+		"/var/www/fantasy/jcifantasy/application/views/includes/javascripts.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/csv_view.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/admin.php",
+		"/var/www/fantasy/jcifantasy/application/controllers/player.php",
+		"/var/www/fantasy/jcifantasy/application/views/admin/player/player.php",
 		"/var/www/fantasy/jcifantasy/application/helpers/my_functions_helper.php",
 		"/var/www/fantasy/jcifantasy/application/views/includes/menu.php",
 		"/var/www/fantasy/jcifantasy/application/controllers/login.php",
-		"/var/www/fantasy/jcifantasy/application/models/player_model.php",
-		"/var/www/fantasy/jcifantasy/application/controllers/player.php",
-		"/var/www/fantasy/jcifantasy/application/views/admin/player/player.php",
 		"/var/www/fantasy/jcifantasy/application/views/admin/user/user.php",
 		"/var/www/fantasy/jcifantasy/application/views/admin/team/team.php",
 		"/var/www/fantasy/jcifantasy/application/controllers/upload_csv.php",
 		"/var/www/fantasy/jcifantasy/application/views/admin/upload.php",
 		"/var/www/fantasy/jcifantasy/stylesheets/sass/player.scss",
-		"/var/www/fantasy/jcifantasy/application/core/MY_Model.php",
-		"/var/www/fantasy/jcifantasy/application/controllers/user.php",
-		"/var/www/fantasy/jcifantasy/application/controllers/admin.php",
-		"/var/www/fantasy/jcifantasy/application/controllers/team.php",
-		"/var/www/fantasy/jcifantasy/application/models/user_model.php",
 		"/var/www/fantasy/jcifantasy/application/models/player_model",
 		"/var/www/fantasy/jcifantasy/application/config/mimes.php",
-		"/var/www/fantasy/jcifantasy/application/core/MY_Controller.php",
 		"/var/www/fantasy/jcifantasy/application/views/admin/user/edit.php",
 		"/var/www/fantasy/jcifantasy/application/views/admin/user/create.php",
 		"/var/www/fantasy/jcifantasy/stylesheets/sass/global.scss",
 		"/var/www/fantasy/jcifantasy/stylesheets/sass/user.scss",
 		"/var/www/fantasy/jcifantasy/application/views/frontend/login.php",
 		"/var/www/fantasy/jcifantasy/application/views/admin/team/create.php",
-		"/var/www/fantasy/jcifantasy/application/models/team_model.php",
 		"/var/www/fantasy/jcifantasy/stylesheets/sass/admin.scss",
-		"/var/www/fantasy/jcifantasy/stylesheets/sass/team.scss",
 		"/var/www/fantasy/jcifantasy/stylesheets/sass/login.scss",
 		"/var/www/fantasy/jcifantasy/application/config/autoload.php",
 		"/var/www/fantasy/jcifantasy/application/views/includes/header.php",
 		"/var/www/fantasy/jcifantasy/stylesheets/login.css",
 		"/var/www/fantasy/jcifantasy/application/config/config.php",
 		"/var/www/fantasy/jcifantasy/application/controllers/logout.php",
-		"/var/www/fantasy/jcifantasy/application/views/includes/javascripts.php",
 		"/var/www/fantasy/jcifantasy/application/config/routes.php",
 		"/var/www/fantasy/jcifantasy/application/views/includes/base.php",
 		"/var/www/fantasy/jcifantasy/application/views/user/user.php",
@@ -398,6 +505,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"th",
+			"get_team_players",
+			"team_players",
+			"$type",
+			"get_players",
+			"get_team_players",
+			"3px",
+			"get_team_by_manager",
+			"manager",
+			"user",
+			"team_model",
+			"team_",
+			"form",
+			"name",
+			"position",
 			"FFFFFF",
 			"team",
 			"h3",
@@ -498,7 +620,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -506,15 +628,15 @@
 					"file": "application/helpers/my_functions_helper.php",
 					"settings":
 					{
-						"buffer_size": 1726,
+						"buffer_size": 2593,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								813,
-								813
+								2217,
+								2217
 							]
 						],
 						"settings":
@@ -523,80 +645,78 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 408.0,
+						"translation.y": 1632.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "application/controllers/team.php",
+					"file": "application/views/admin/player/player.php",
 					"settings":
 					{
-						"buffer_size": 12946,
+						"buffer_size": 3773,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11854,
-								11854
+								681,
+								681
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4993.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "application/views/admin/team/draw_lot.php",
+					"file": "/home/ryanangeles/Desktop/jci_players.csv",
 					"settings":
 					{
-						"buffer_size": 3255,
+						"buffer_size": 38769,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								459,
-								459
+								2451,
+								2451
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 179.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "stylesheets/sass/team.scss",
+					"file": "stylesheets/sass/player.scss",
 					"settings":
 					{
-						"buffer_size": 2561,
+						"buffer_size": 738,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2135,
-								2135
+								706,
+								706
 							]
 						],
 						"settings":
@@ -605,25 +725,79 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2014.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "application/models/team_model.php",
+					"file": "application/views/admin/team/create.php",
 					"settings":
 					{
-						"buffer_size": 5972,
+						"buffer_size": 3174,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4727,
-								4727
+								2291,
+								2291
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 6.0,
+						"translation.y": 867.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "stylesheets/sass/global.scss",
+					"settings":
+					{
+						"buffer_size": 7580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2976,
+								2976
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2346.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/controllers/player.php",
+					"settings":
+					{
+						"buffer_size": 6367,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6258,
+								6258
 							]
 						],
 						"settings":
@@ -633,7 +807,198 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1734.0,
+						"translation.y": 2754.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/controllers/drafting.php",
+					"settings":
+					{
+						"buffer_size": 4925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2982,
+								2982
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2252.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/config/config.php",
+					"settings":
+					{
+						"buffer_size": 12853,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								717,
+								717
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "application/models/player_model.php",
+					"settings":
+					{
+						"buffer_size": 1562,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								241,
+								241
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "application/controllers/team.php",
+					"settings":
+					{
+						"buffer_size": 13376,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4647.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "application/models/team_model.php",
+					"settings":
+					{
+						"buffer_size": 6655,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2295.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "application/controllers/upload_csv.php",
+					"settings":
+					{
+						"buffer_size": 5387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2468,
+								2468
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1683.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "application/views/admin/csv_view.php",
+					"settings":
+					{
+						"buffer_size": 1514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								579,
+								579
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -697,6 +1062,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 258.0,
+	"side_bar_width": 292.0,
 	"status_bar_visible": true
 }
