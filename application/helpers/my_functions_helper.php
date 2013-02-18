@@ -40,8 +40,8 @@
 
 			$user_menu = array(
 					1=>array(
-						'user'=>'user','team'=>'team','player'=>'player','team/draw_lot'=>'draw lots'),
-					2=>array('player'=>'player','drafting'=>'draft')
+						'user'=>'user','team'=>'team','player'=>'player','team/draw_lot'=>'draw lots', 'admin/randomize'=>'RANDOMIZE !'),
+					2=>array('team/players'=>'player','drafting'=>'draft')
 				);
 
 			return $user_menu[$user_type];
@@ -84,6 +84,99 @@
 			$position = array(0=>'NA',1=>'PG',2=>'SG',3=>'SF',4=>'PF',5=>'C');
 		
 			return $position[$position_id];
+		}
+	}
+
+	if( !function_exists('get_team_players')){
+
+		function get_team_players($team_id){
+
+			$CI =& get_instance();
+
+			$CI->db->select('*');
+            $CI->db->from('team_players');
+            $CI->db->join('player', 'player.id = team_players.player_id', 'left outer');
+            $CI->db->where(array('team_players.team_id'=>$team_id));
+
+            $query = $CI->db->get();
+
+            if($query->num_rows() > 0){
+
+                foreach($query->result() as $row){
+            
+                    $records[] = $row;
+            
+                }
+
+                $html = '<ul>';
+
+                foreach ($records as $record) {
+
+                	$name = isset($record->first_name) ? ucfirst($record->first_name) . ' ' . ucfirst($record->last_name) : 'PASS';
+
+                	$html .= '<li';
+                	$html .= team_player_last_id() == $record->id ? ' class="latest"' : '';
+                	$html .= '>' . $record->seed . ' ' . $name . '</li>';
+
+                }
+
+                $html .= '</ul>';
+
+                return $html;
+
+            }
+
+		}
+
+	}
+
+	if(!function_exists('team_player_last_id')){
+
+		function team_player_last_id(){
+
+			$CI =& get_instance();
+
+			$query = $CI->db->query('SELECT a.* FROM team_players as a WHERE id = (SELECT MAX(b.id) FROM team_players as b)');
+
+            if($query->num_rows() == 1){
+
+                foreach($query->result() as $row){
+            
+                    $records[] = $row;
+            
+                }
+
+                $player = array_shift($records);
+
+                return $player->player_id;
+            
+            }
+
+		}
+
+	}
+
+	if( !function_exists('is_drafted')){
+
+		function is_drafted($player_id){
+
+			$CI =& get_instance();
+
+			$CI->db->select('player_id');
+			$CI->db->where('player_id', $player_id);
+
+			$query = $CI->db->get('team_players');
+
+			if($query->num_rows() > 0){
+
+				return TRUE;
+
+			}else{
+
+				echo FALSE; //$CI->db->last_query();
+				
+			}
+
 		}
 	}
 

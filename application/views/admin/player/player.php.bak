@@ -8,14 +8,27 @@
 			<?php echo form_submit(array('name'=>'submit', 'value'=>'Search', 'class'=>'searchButton'));?>
 			<?php echo form_close(); ?>
 		</div>
-		<?php echo anchor('upload_csv', 'Import Players', array('class'=>'btn btnPrimary btnCreate')); ?>
-		<?php echo anchor('player/create', 'Create Player', array('class'=>'btn btnPrimary btnCreate')); ?>
-		</div>
+		<?php echo $user_type == 1 ? anchor('upload_csv', 'Import Players', array('class'=>'btn btnPrimary btnCreate')) : ''; ?>
+		<?php echo $user_type == 1 ? anchor('player/create', 'Create Player', array('class'=>'btn btnPrimary btnCreate')) : ''; ?>
+		<?php //echo $user_type == 2 ? anchor('#', 'Add Player', array('class'=>'btn btnPrimary btnAdd', 'id'=>'add-to-team')) : ''; ?>
+	</div>
 	<?php if(isset($success_message)): ?>
 		<div class="success message">
 			<?php echo $success_message; ?>
 		</div>
 	<?php endif; ?>
+
+	<!-- <div id="add-to-team-wrap">
+		<?php echo form_open('player/add_to_team'); ?>
+		<?php 
+			echo form_label('player', 'player');
+			echo isset($players_option) ? form_dropdown('player', $players_option, $player_selected) : form_dropdown('manager',array(0=>'Select'), 0); 
+			echo form_error('player');
+
+			echo form_submit(array('name'=>'submit', 'value'=>'Submit', 'class'=>'btn btnPrimary'));
+		?>
+		<?php echo form_close(); ?>
+	</div> -->
 
 	<table cellpadding="0" cellspacing="0" border="0">
 		<thead>
@@ -28,7 +41,9 @@
 				<th style="width:90px;">Suncell</th>
 				<th>Born</th>
 				<th>Status</th>
+				<?php if($user_type == 1) : ?>
 				<th>Operation</th>
+				<?php endif; ?>
 			</tr>
 		</thead>
 		<tbody>
@@ -43,11 +58,13 @@
 				<td><?php echo $player->suncell; ?></td>
 				<td><?php echo date('d M Y',strtotime($player->born)); ?></td>
 				<td><?php echo get_status($player->active); ?></td>
+				<?php if($user_type == 1) : ?>
 				<td>	
 					<?php echo anchor('player/view/' . $player->id, 'View'); ?> |
 					<?php echo anchor('player/edit/' . $player->id, 'Edit'); ?> |
 					<?php echo anchor('player/delete/' . $player->id, 'Delete',array('class'=>'del')); ?>
 				</td>
+				<?php endif; ?>
 			</tr>
 			<?php endforeach; endif; ?>
 
@@ -61,18 +78,52 @@
 
 	$(function(){
 
-		$('.del').click(function(e){
-			
-			var del = confirm('Are you sure you want to delete this item');
+		$('input[value="Cancel"]').click(function(e){
+			window.location.href = "<?php echo base_url().'player'; ?>";
+		});
 
-			if(!del){
+		/*
+		$('#add-to-team').click(function(e){
 
-				return false;
-				
-			}
+			e.preventDefault();
+			$('#add-to-team-wrap').slideToggle(200, change_btn);
 
 		});
 
+		$('#add-to-team-wrap form input[name="submit"]').click(function(e){
+
+
+			if($('#add-to-team-wrap form select').val() == 0){
+				
+				//e.preventDefault();
+				$('#add-to-team-wrap form .error').remove();
+				$('#add-to-team-wrap form').append('<span class="error">Please choose a player.</span>');
+
+				return false;
+
+			}else{
+
+				$('#add-to-team-wrap form').submit();
+
+			}
+
+		});
+		*/
+
 	});
+
+	function change_btn(){
+
+		if($('#add-to-team').hasClass('btnPrimary')){
+
+			$('#add-to-team').removeClass('btnPrimary').text('Close').css('color','#333333');
+
+		}else{
+
+			$('#add-to-team').addClass('btnPrimary').text('Add Player').css('color','#FFFFFF');
+
+		}
+
+	}
 
 </script>

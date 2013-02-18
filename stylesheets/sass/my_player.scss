@@ -1,19 +1,7 @@
-.content{
-
-	h1{
-		font-size: 3em;
-		font-weight: bold;
-		text-shadow: 2px 2px #333333;
-		margin-bottom: 20px;
-		text-align: center;
-
-	}
-
-}
 .playerWrap{
 
 	float: left;
-	width: 300px;
+	width: 473px;
     background-color: rgba(255,255,255,0.2);
     box-shadow: 0 0 20px rgba(0,0,0,0.4); 
 	padding: 5px;
@@ -29,90 +17,6 @@
 		font-weight: bold;
 		padding:5px 0 10px 0;
 		border-bottom: 1px dotted #CCCCCC;
-	}
-
-}
-
-#team{
-
-	.teamWrap{
-
-		.teamDetail{
-
-			border-bottom: 1px dotted #CCCCCC;
-			padding: 3px 0;
-
-			.imageWrap{
-				display: block;
-				text-align: center;
-				border-bottom: 1px dotted #CCCCCC;
-				padding:5px 0;
-
-				img{
-					outline: 5px solid #FFFFFF;
-				}
-			}
-
-			h4{
-				color: #FFFFFF;
-				font-size: 1.3em;
-				line-height: 1.6em;
-
-				.label{
-					display: inline-block;
-					width: 100px;
-
-				}
-
-			}
-		}
-
-		.formWrap{
-
-			padding:5px 0;
-			color: #FFFFFF;
-
-			h4{
-				padding: 5px 0;
-				font-style: italic;
-				font-size: 1.2em;
-			}
-
-			li#player_name{
-
-				.value{
-
-					font-size: 1.4em;
-					font-weight: bold;
-					color: #F2802B;
-				}
-			}
-
-			li{
-
-				padding:5px 0;
-
-				.label{
-					display: inline-block;
-					width: 90px;
-				}
-
-				.value{
-
-					font-weight: bold;
-
-				}
-
-			}
-
-			.form{
-
-				border-top: 1px dotted #CCCCCC;
-				text-align: right;
-				margin-top: 5px;
-			}
-		}
-
 	}
 
 }
@@ -144,44 +48,13 @@
 
 			}
 
+			.seed{
+				float: right;
+				font-weight: bold;
+			}
+
 		} 
 
-		.droppable{
-			margin-bottom: 5px;
-			-webkit-border-radius: 3px;
-			-moz-border-radius: 3px;
-			border-radius: 3px;
-			border: 1px solid #999999;
-			background-color: rgba(0,0,0, 0.1);
-			box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) inset;
-			height: 25px;
-
-			div{
-
-				height: 25px;
-				line-height: 25px;
-				color: #FFFFFF;
-				text-align: center;
-				font-weight: bold;
-				text-shadow: 1px 1px rgba(0,0,0, 0.3);
-
-			}
-
-		}
-
-		.dropit{
-
-			border: 1px solid #EEEEEE !important;
-			background-color: rgba(255, 255, 255, 0.2) !important;
-			box-shadow: 0 0 4px rgba(255, 255, 255, 0.7) !important;
-
-			div{
-
-				color: #333333 !important;
-				text-shadow: 1px 1px rgba(255, 255, 255, 0.3) !important;
-			}
-
-		}
 	}
 
 }
@@ -198,7 +71,7 @@
 		position: absolute;
 		right: 5px;
 		top: 5px;
-		width: 150px;
+		width: 300px;
 	}
 
 	.searchWrap{
@@ -211,7 +84,7 @@
 		}
 
 		input[type="text"]{
-			width: 175px;
+			width: 349px;
 		}
 
 		#clear-searh{
@@ -253,11 +126,23 @@
 
 			}
 
+			span.drafted{
+
+				font-weight: bold;
+				float: right;
+				color: green;
+			}
+
+			.drafted.true{
+
+				color: red;
+
+			}
+
 		}
 
 		li:hover{
 
-			cursor: move;
 			background-color: #DDDDDD; 
 			background: url(images/linear_bg_2.png); 
 			background-repeat: repeat-x; /* Safari 4-5, Chrome 1-9 */ 
@@ -283,66 +168,5 @@
 		}
 
 	}
-
-}
-
-.enterWrap{
-
-	margin-top:20px;
-	text-align:center;
-
-	.btn{
-		color: #333333;
-		border:1px solid #333333;
-		padding: 15px 20px;
-		font-size: 1.5em;
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		border-radius: 5px;
-	}
-
-	.btnPrimary{
-
-		color: #FFFFFF;
-		
-	}
-}
-
-#draft_time{
-
-	background-color: rgba(255,255,255,0.1);
-	padding :20px;
-	font-size: 3em;
-	color: FFFFFF;
-	position: fixed;
-	left: 2%;
-	top: 28px;
-
-}
-
-
-/*=========================================
-	jquery related Styles
-=========================================*/
-
-.ui-draggable-dragging{
-
-	box-shadow: -2px 0 5px #999999;
-    opacity: 0.6;
-}
-
-.message{
-	
-	padding:10px;
-
-	p{
-		font-size: 16px;
-	}
-
-}
-.ui-icon{
-
-	float:left;
-	margin-right:10px;
 
 }

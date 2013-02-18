@@ -22,7 +22,7 @@
             $config['allowed_types'] 	= 'gif|jpg|jpeg|png';
             $config['max_size'] 		= '2000';
             $config['max_width']  		= '1024';
-            $config['max_height']  		= '768';
+            $config['max_height']  		= '1024';
             $config['file_name']		= 'team-' . $id . '-' . now();
 
             $this->load->library('upload', $config);
@@ -89,7 +89,7 @@
 
                 $error = $this->upload->display_errors('<span class="error errorInline">', '</span>');
 
-                $data['status'] = false;
+                $data['status'] = FALSE;
                 $data['data'] = $error;
 
                 return $data;
@@ -103,7 +103,7 @@
             $this->db->select('*');
             $this->db->from('team');
             $this->db->join('team_queue', 'team_queue.team_id = team.id', 'left');
-            $this->db->where(array('team.active'=>1));
+            $this->db->where(array('team.deleted'=>0));
 
             $query = $this->db->get();
 
@@ -119,6 +119,20 @@
             
             }
             
+        }
+
+        public function get_team_array(){
+
+            $this->db->select('team_id');
+            $this->db->from('team_queue');
+
+            $query = $this->db->get();
+
+            if($query->num_rows() > 0){
+
+                return $query->result_array();
+            }
+
         }
 
 		public function get_all_available_manager(){
@@ -213,6 +227,23 @@
             }
 
             return FALSE;
+        }
+
+        public function seed_exist($seed, $team_id){
+
+            $this->db->where(array('seed'=> $seed, 'team_id'=>$team_id));
+
+            $query = $this->db->get('team_players');
+
+            if($query->num_rows() > 0){
+
+                return TRUE;
+
+            }else{
+
+                return FALSE;
+
+            }
         }
 
         public function get_team_by_manager($manager_id){

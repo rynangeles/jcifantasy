@@ -15,4 +15,8 @@
 		<link rel="stylesheet" href="<?php echo base_url();?>stylesheets/<?php echo $stylesheet; ?>.css" type="text/css" media="screen" />
 		<?php endforeach; endif; ?>
 	</head>
+	<script type="text/javascript">
+		// set time for drafting page
+		var time = 0;
+	</script>
 	<body id="<?php echo $page_id; ?>" >

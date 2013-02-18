@@ -30,7 +30,7 @@
 				<img src="<?php echo base_url() . 'uploads/team/' . $turn->team_logo; ?>">
 			</span>
 			<h3><?php echo $turn->team_name; ?></h3>
-			<h4><span class="label">Head Coach:</span> <?php echo ucfirst($turn->coach_first_name) . ' ' . ucfirst($turn->coach_last_name); ?></h4>
+			<h4><span class="label">Owner:</span><?php echo isset($turn->owner_name) ? ucfirst($turn->owner_name): ''; ?></h4>
 			<h4><span class="label">Manager :</span> <?php echo get_manager_name($turn->manager_id); ?></h4>
 			
 		</div>

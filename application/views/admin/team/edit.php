@@ -32,16 +32,9 @@
 		</div>
 		<div class="inputGroup">
 			<?php 
-				echo form_label('Coach First Name', 'coach_first_name');
-				echo form_input(array('name'=>'coach_first_name', 'placeholder'=>'Coach First Name'),set_value('coach_first_name',$default->coach_first_name));
-				echo form_error('coach_first_name');
-			?>
-		</div>
-		<div class="inputGroup">
-			<?php 
-				echo form_label('Coach Last Name', 'coach_last_name');
-				echo form_input(array('name'=>'coach_last_name', 'placeholder'=>'Coach Last Name'),set_value('coach_last_name',$default->coach_last_name));
-				echo form_error('coach_last_name');
+				echo form_label('Owner', 'owner');
+				echo form_input(array('name'=>'owner', 'placeholder'=>'Owner'),set_value('owner',$default->owner_name));
+				echo form_error('owner');
 			?>
 		</div>
 		<div class="inputGroup">

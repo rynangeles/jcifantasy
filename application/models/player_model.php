@@ -10,7 +10,7 @@
 
 		public function get_all_active(){
 
-			$this->db->where('active', 1);
+			$this->db->where('deleted', 0);
 
 			$query = $this->db->get($this->table);
 
@@ -51,6 +51,19 @@
             return FALSE;
 
 		}
+
+        public function count_team_players($team_id){
+
+            $this->db->select('*');
+            $this->db->from('team_players');
+            $this->db->join('player', 'player.id = team_players.player_id', 'left');
+            $this->db->where(array('player.active'=>1, 'team_players.team_id'=>$team_id));
+
+            $query = $this->db->get();
+
+            return $query->num_rows();
+
+        }
 
 		public function get_available_players(){
 

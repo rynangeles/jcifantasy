@@ -2,9 +2,23 @@
 
 	class Team extends My_controller{
 
+        var $manager    = 0;
+
         function __construct(){
 
             parent::__construct();
+
+            $this->manager = $this->session->userdata('user_id');
+
+            $this->load->model('team_model');
+
+            $this->load->model('player_model');
+
+            $this->load->library('form_validation');
+
+        }
+
+        public function index(){
 
             if($this->user_type != 1){
 
@@ -12,15 +26,6 @@
                 
 
             }
-
-
-            $this->load->model('team_model');
-
-            $this->load->library('form_validation');
-
-        }
-
-        public function index(){
 
             $data = array();
             $data['page_id']        = 'team'; // <body id="$page_id">
@@ -41,6 +46,13 @@
 
         public function create(){
 
+            if($this->user_type != 1){
+
+                redirect('admin');
+                
+
+            }
+
             $data = array();
             $data['page_id']            = 'team-create'; // <body id="$page_id">
             $data['javascripts']        = array('ajaxupload'); // javascripts to load
@@ -53,8 +65,7 @@
                 $this->form_validation->set_error_delimiters('<span class="error errorInline">', '</span>');
                 //$this->form_validation->set_rules('logo_image_filename', 'Team Logo', 'required');
                 $this->form_validation->set_rules('team_name', 'Team Name', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('coach_first_name', 'Coach First Name', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('coach_last_name', 'Coach Last Name', 'trim|required|xss_clean');
+                $this->form_validation->set_rules('owner', 'Owner', 'trim|required|xss_clean');
                 $this->form_validation->set_message('is_natural_no_zero', 'Please select a manager', 'manager|xss_clean');
                 $this->form_validation->set_rules('manager', 'Team Manager', 'trim|required|is_natural_no_zero|xss_clean');
                 
@@ -78,14 +89,13 @@
                         
                         if($upload_logo['status'] == TRUE){
 
-                            $team_logo  = 'large-' . $upload_logo['data']['file_name'];
-                            $team_thumb = 'thumb-' . $upload_logo['data']['file_name'];
+                            $team_logo  = !empty( $upload_logo['data']['file_name']) ? 'large-' . $upload_logo['data']['file_name'] : $team_logo;
+                            $team_thumb = !empty( $upload_logo['data']['file_name']) ? 'thumb-' . $upload_logo['data']['file_name'] : $team_thumb;
 
                             $data = array(
                                     'team_name'         => $this->input->post('team_name'),
                                     'manager_id'        => $this->input->post('manager'),
-                                    'coach_first_name'  => $this->input->post('coach_first_name'),
-                                    'coach_last_name'   => $this->input->post('coach_last_name'),
+                                    'owner_name'        => $this->input->post('owner'),
                                     'team_logo'         => $team_logo,
                                     'team_logo_thumb'   => $team_thumb,
                                     'created'           => date('Y-m-d H:i:s'),
@@ -138,6 +148,13 @@
 
         public function edit(){
 
+            if($this->user_type != 1){
+
+                redirect('admin');
+                
+
+            }
+
             $data = array();
             $data['page_id']            = 'team-create'; // <body id="$page_id">
             $data['javascripts']        = array('ajaxupload'); // javascripts to load
@@ -163,8 +180,7 @@
                 $this->form_validation->set_error_delimiters('<span class="error errorInline">', '</span>');
                 //$this->form_validation->set_rules('logo_image_filename', 'Team Logo', 'required');
                 $this->form_validation->set_rules('team_name', 'Team Name', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('coach_first_name', 'Coach First Name', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('coach_last_name', 'Coach Last Name', 'trim|required|xss_clean');
+                $this->form_validation->set_rules('owner', 'Owner', 'trim|required|xss_clean');
                 $this->form_validation->set_message('is_natural_no_zero', 'Please select a manager', 'manager|xss_clean');
                 $this->form_validation->set_rules('manager', 'Team Manager', 'trim|required|is_natural_no_zero|xss_clean');
                 
@@ -173,7 +189,7 @@
                     $data['error']      = TRUE;
                     $data['manager']    = $this->input->post('manager');
                     $data['status']     =  $this->input->post('status');
-                
+                        
                 }else{
 
                     $upload_logo = $this->upload($id);
@@ -182,18 +198,16 @@
                     $team_thumb = $defaults->team_logo_thumb;
 
                     if(isset($upload_logo['status'])){
-                        
 
                         if($upload_logo['status'] == TRUE){
 
-                            $team_logo  = 'large-' . $upload_logo['data']['file_name'];
-                            $team_thumb = 'thumb-' . $upload_logo['data']['file_name'];
+                            $team_logo  = !empty( $upload_logo['data']['file_name']) ? 'large-' . $upload_logo['data']['file_name'] : $team_logo;
+                            $team_thumb = !empty( $upload_logo['data']['file_name']) ? 'thumb-' . $upload_logo['data']['file_name'] : $team_thumb;
 
                             $data = array(
                                 'team_name'         => $this->input->post('team_name'),
                                 'manager_id'        => $this->input->post('manager'),
-                                'coach_first_name'  => $this->input->post('coach_first_name'),
-                                'coach_last_name'   => $this->input->post('coach_last_name'),
+                                'owner_name'        => $this->input->post('owner'),
                                 'team_logo'         => $team_logo,
                                 'team_logo_thumb'   => $team_thumb,
                                 'active'            => $this->input->post('status')
@@ -238,26 +252,26 @@
 
             $id = $this->uri->segment(3);
 
-            $is_deleted = $this->team_model->delete_record($id);
+            $is_deleted = $this->team_model->update_record($id, array('deleted'=> 1));
 
             if($is_deleted){
 
-                $this->team_model->table = 'team_queue';
-                $this->team_model->primary_key = 'team_id';
+                // $this->team_model->table = 'team_queue';
+                // $this->team_model->primary_key = 'team_id';
 
-                $is_deleted = $this->team_model->delete_record($id);
+                // $is_deleted = $this->team_model->delete_record($id);
 
-                if($is_deleted){   
+                // if($is_deleted){   
 
                     $this->session->set_flashdata('success_message', 'Team successfully deleted.');
 
                     redirect('team');
 
-                }else{
+                // }else{
                     
-                    $this->session->set_flashdata('success_message', 'Team deletion failed.');
+                //     $this->session->set_flashdata('success_message', 'Team deletion failed.');
 
-                }
+                // }
 
             }else{
 
@@ -265,6 +279,25 @@
 
             }
 
+        }
+
+        public function players(){
+
+            $team                   = $this->team($this->manager);
+            $last_team_seed         = $this->last_team_seed(isset($team->id) ? $team->id : 0);
+
+            $data = array();
+            $data['page_id']        = 'drafting'; // <body id="$page_id">
+            $data['javascripts']    = array('jQuery/jquery-ui-1.10.0.custom'); // javascripts to load
+            $data['stylesheets']    = array('my_player','jQuery/jcidrafting/jquery-ui-1.10.0.custom');  // stylesheets to load
+            $data['all_players']    = $this->available_players();
+            
+            $data['team']           = $team;
+            $data['seed']           = $last_team_seed + 1;
+            $data['team_players']   = $this->team_players(isset($team->id) ? $team->id : 0);
+
+            $data['content'] = 'admin/team/player'; // view to load
+            $this->load->view('includes/base', $data);
         }
 
         public function draw_lot(){
@@ -317,6 +350,68 @@
 
         }
 
+        private function team($id){
+
+            if($this->team_model->get_team_by_manager($id)){
+
+                return $this->team_model->get_team_by_manager($id);
+
+            }else{
+
+                return FALSE;
+            }
+
+        }
+
+        private function team_players($id){
+
+            if($this->player_model->get_team_players($id)){
+
+                return $this->player_model->get_team_players($id);
+
+            }else{
+
+                return FALSE;
+            }
+
+        }
+
+        private function last_team_seed($id){
+
+            $this->player_model->table = 'team_queue'; 
+            $this->player_model->primary_key = 'team_id';
+
+            $return = $this->player_model->get_by_id($id);
+
+            if($return){
+
+                $return = array_shift($return);
+
+                return $return->seed;
+
+            }else{
+
+                return FALSE;
+
+            }
+
+        }
+
+        private function available_players(){
+
+            $this->player_model->table = "player";
+
+            if($this->player_model->get_all_active()){
+
+                return $this->player_model->get_all_active();
+
+            }else{
+
+                return FALSE;
+            }
+
+        }
+
         private function get_next_queue(){
 
             $queue = $this->team_model->last_queue();
@@ -351,7 +446,7 @@
 
             }else{
 
-                return 'No file';
+                return array('status'=>TRUE, 'data'=>' No File');
             }
 
         }

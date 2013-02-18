@@ -4,26 +4,41 @@
   text-shadow: 2px 2px #333333;
   margin-bottom: 20px;
   text-align: center; }
+#admin .content .teamWrap:last-child {
+  margin-right: 0; }
 #admin .content .teamWrap {
   float: left;
-  height: 250px;
-  margin-left: 15px; }
+  margin-right: 8px;
+  word-wrap: break-word; }
   #admin .content .teamWrap .imgWrap {
     padding: 5px;
-    background-color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.2);
     display: block;
-    height: 150px;
-    line-height: 148px;
-    margin-bottom: 10px; }
+    height: 111px;
+    width: 111px; }
     #admin .content .teamWrap .imgWrap img {
       margin: 0;
       vertical-align: middle; }
   #admin .content .teamWrap h3 {
     text-align: center;
-    font-size: 1.5em; }
+    font-size: 1.1em;
+    width: 121px;
+    height: 30px;
+    margin-bottom: 5px; }
   #admin .content .teamWrap h4 {
-    margin: 5px 0;
-    font-size: 1.1em; }
+    font-size: 0.9em;
+    margin: 5px 0; }
     #admin .content .teamWrap h4 .label {
       display: inline-block;
       width: 80px; }
+  #admin .content .teamWrap ul {
+    font-size: 0.8em; }
+    #admin .content .teamWrap ul li {
+      width: 111px;
+      white-space: normal;
+      word-wrap: break-word; }
+    #admin .content .teamWrap ul li.latest {
+      background-color: #5AD96A;
+      color: #000000;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(138, 217, 143, 0.8); }
